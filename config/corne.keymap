@@ -39,10 +39,17 @@ combo_##_name_ {                                   \
 / {
     combos {
         compatible = "zmk,combos";
+
         combo_esc {
             timeout-ms = <50>;
             key-positions = <19 20>;
             bindings = <&kp ESC>;
+        };
+
+        combo_del {
+            timeout-ms = <50>;
+            key-position =  <10 11>;
+            bindings = <&kp DEL>;
         };
         // invoke macros
         /*COMBO(vim_esc, &vim_esc, 19 20)*/
@@ -112,7 +119,7 @@ combo_##_name_ {                                   \
 // &kp LGUI  &trans &kp RET      &kp SPACE &trans    &kp BSPC
                         display-name = "NUM";
                         bindings = <
-   &kp TAB    &kp N1       &kp N2       &kp N3       &kp N4       &kp N5         &kp N6   &kp N7   &kp N8 &kp N9    &kp N0 &kp DEL
+   &kp TAB    &kp N1       &kp N2       &kp N3       &kp N4       &kp N5         &kp N6   &kp N7   &kp N8 &kp N9    &kp N0 &kp BSPC
    CTL_ESC    &trans       &trans       &trans       &trans       &trans         &kp LEFT &kp DOWN &kp UP &kp RIGHT &trans &kp HOME
    &kp LSHFT  &trans       &trans       &trans       &trans       &trans         &trans   &trans   &trans &trans    &trans &kp END
                            &kp LGUI     &trans       &kp RET      &kp SPACE      &mo 2    &kp RALT
