@@ -8,6 +8,45 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
 
+#define DEF 0
+#define NUM 1
+#define SYM 2
+#define ADJ 3
+
+
+&mt {
+    flavor = "tap-preferred";
+    tapping-term-ms = <200>;
+};
+
+/* Key positions
+ 0    1    2    3    4    5     6    7    8    9    10    11 
+ 12   13   14   15   16   17    18   19   20   21   22    23 
+ 24   25   26   27   28   29    30   31   32   33   34    35 
+                36   37   38    39 40 41
+ */
+
+/ {
+    combos {
+        compatible = "zmk,combos";
+
+        combo_esc {
+            timeout-ms = <50>;
+            key-positions = <19 20>;
+            bindings = <&kp ESC>;
+        };
+        combo_capw {
+            timeout-ms = <50>;
+            key-positions = <8 32>;
+            bindings = <&caps_word>;
+        };
+    };
+};
+
+#define CTL_ESC &mt LCTRL ESC
+#define SHFT_ESC &mt RSHFT ESC
+#define ALT_DEL &mt RALT DEL
+
 / {
     conditional_layers {
         compatible = "zmk,conditional-layers";
@@ -25,13 +64,14 @@
 //  | ESC  |  '  |  ,  |  .  |  P  |  Y  |        |  F  |  G  |  C  |  R  |  L  | BKSP |
 //  | CTRL |  A  |  O  |  E  |  U  |  I  |        |  D  |  H  |  T  |  N  |  S  | DEL  |
 //  | SHFT |  ;  |  Q  |  J  |  K  |  X  |        |  B  |  M  |  W  |  V  |  Z  | TAB  |
-//  +------------------| GUI | LWR | SPC |        | RSE | ENT | ALT |------------------+
+//  +------------------| GUI | LWR | ENT |        | SPC | RSE | ALT/DEL |--------------+
 //                     +-----------------+        +-----------------+
+            display-name = "DEF";
             bindings = <
-&kp ESC   &kp SQT  &kp COMMA &kp DOT &kp P &kp Y    &kp F &kp G &kp C &kp R &kp L &kp BSPC
-&kp LCTRL &kp A    &kp O     &kp E   &kp U &kp I    &kp D &kp H &kp T &kp N &kp S &kp DEL
-&kp LSHFT &kp SEMI &kp Q     &kp J   &kp K &kp X    &kp B &kp M &kp W &kp V &kp Z &kp TAB
-                        &kp LGUI &mo 1 &kp RET      &kp SPACE    &mo 2 &kp RALT
+&kp TAB   &kp SQT  &kp COMMA &kp DOT &kp P &kp Y    &kp F &kp G &kp C &kp R &kp L &kp BSPC
+&kp LCTRL &kp A    &kp O     &kp E   &kp U &kp I    &kp D &kp H &kp T &kp N &kp S &kp MINUS
+&kp LSHFT &kp SEMI &kp Q     &kp J   &kp K &kp X    &kp B &kp M &kp W &kp V &kp Z SHFT_ESC
+                        &kp LGUI &mo 1 &kp RET      &kp SPACE    &mo 2 ALT_DEL
             >;
         };
 
@@ -40,12 +80,15 @@
 //  | ESC  | F7  | F5  | F3  | F1  | F9  |        | F11 | F2  | F4  | F6  | RGT | BKSP |
 //  | CTRL |  1  |  2  |  3  |  4  |  5  |        |  6  |  7  |  8  |  9  |  0  | DEL  |
 //  | SHFT |     |     |     |     |     |        |     |     |     |     |     | TAB  |
-//  +------------------| GUI |     | SPC |        |     | ENT | ALT |------------------+
+//  +------------------| GUI | LWR | ENT |        | SPC | RSE | ALT/DEL |--------------+
 //                     +-----------------+        +-----------------+
+            display-name = "NUM";
             bindings = <
-&trans &kp F7 &kp F5 &kp F3 &kp F1 &kp F9         &kp F11 &kp F2 &kp F4 &kp F6 &kp F8 &trans
+/*&trans &kp F7 &kp F5 &kp F3 &kp F1 &kp F9         &kp F11 &kp F2 &kp F4 &kp F6 &kp F8 &trans*/
 &trans &kp N1 &kp N2 &kp N3 &kp N4 &kp N5         &kp N6  &kp N7 &kp N8 &kp N9 &kp N0 &trans
-&trans &trans &trans &trans &trans &trans         &trans  &trans &trans &trans &trans &trans
+&trans &kp FSLH &kp STAR &kp PLUS &kp MINUS &kp DOT &kp LEFT &kp DOWN &kp UP &kp RIGHT &trans &trans 
+&trans &kp F7 &kp F5 &kp F3 &kp F1 &kp F9         &kp F11 &kp F2 &kp F4 &kp F6 &kp F8 &trans
+/*&trans &trans &trans &trans &trans &trans         &trans  &trans &trans &trans &trans &trans*/
                      &trans &trans &trans         &trans  &trans &trans
             >;
         };
@@ -55,13 +98,14 @@
 //  | ESC  |  "  |  <  |  >  |  #  |  1  |        |  2  |  &  |  }  |  {  |  %  | BKSP |
 //  | CTRL |  !  |  -  |  +  |  =  |  _  |        |  |  |  :  |  )  |  (  |  ?  | DEL  |
 //  | SHFT |  ^  |  /  |  *  |  \  |  $  |        |  `  |  ~  |  ]  |  [  |  @  | TAB  |
-//  +------------------| GUI |     | SPC |        |     | ENT | ALT |------------------+
+//  +------------------| GUI | LWR | ENT |        | SPC | RSE | ALT/DEL |--------------+
 //                     +-----------------+        +-----------------+
+            display-name = "SYM";
             bindings = <
-&trans    &kp DQT   &kp LT    &kp GT   &kp HASH  &kp N1      &kp N2    &kp AMPS  &kp RBRC &kp LBRC &kp PRCNT &trans
-&kp LCTRL &kp EXCL  &kp MINUS &kp PLUS &kp EQUAL &kp UNDER   &kp PIPE  &kp COLON &kp RPAR &kp LPAR &kp QMARK &trans
-&trans    &kp CARET &kp FSLH  &kp STAR &kp BSLH  &kp DLLR    &kp GRAVE &kp TILDE &kp RBKT &kp LBKT &kp AT    &trans
-                    	           &trans &trans &trans      &trans &trans &trans
+&trans &kp EXCL &kp AT &kp HASH &kp DLLR &kp PRCNT    &kp CARET &kp AMPS  &kp STAR  &kp LPAR &kp RPAR &kp PIPE 
+&trans &trans   &trans &trans   &trans   &kp GRAVE    &kp FSLH  &kp MINUS &kp EQUAL &kp LBKT &kp RBKT &kp BSLH 
+&trans &trans   &trans &trans   &trans   &kp TILDE    &kp QMARK &kp UNDER &kp PLUS  &kp LBRC &kp RBRC &trans 
+                       &trans   &trans   &trans       &trans    &trans    &trans
             >;
         };
         
@@ -70,7 +114,7 @@
 //  | ESC  | BT0 | BT1 | BT2 |     | BCR |        |     |     | UP  |     |     | BKSP |
 //  | CTRL |     |     |     |     |     |        |     | LFT | DWN | RGT |     | DEL  |
 //  | SHFT |     |     |     |     |     |        |     |     |     |     |     | TAB  |
-//  +------------------| GUI |     | SPC |        |     | ENT | ALT |------------------+
+//  +------------------| GUI | LWR | ENT |        | SPC | RSE | ALT/DEL |--------------+
 //                     +-----------------+        +-----------------+
             bindings = <
 &trans &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &trans &bt BT_CLR    &trans &trans   &kp UP   &trans    &trans &trans
