@@ -30,11 +30,12 @@
     combos {
         compatible = "zmk,combos";
 
-        combo_esc {
-            timeout-ms = <50>;
-            key-positions = <19 20>;
-            bindings = <&kp ESC>;
-        };
+        /*combo_esc {*/
+        /*    timeout-ms = <50>;*/
+        /*    key-positions = <19 20>;*/
+        /*    bindings = <&kp ESC>;*/
+        /*};*/
+
         combo_capw {
             timeout-ms = <50>;
             key-positions = <8 32>;
@@ -69,8 +70,8 @@
             display-name = "DVK";
             bindings = <
 &kp TAB   &kp SQT  &kp COMMA &kp DOT &kp P &kp Y    &kp F &kp G &kp C &kp R &kp L &kp BSPC
-&kp LCTRL &kp A    &kp O     &kp E   &kp U &kp I    &kp D &kp H &kp T &kp N &kp S &kp MINUS
-&kp LSHFT &kp SEMI &kp Q     &kp J   &kp K &kp X    &kp B &kp M &kp W &kp V &kp Z SHFT_ESC
+CTL_ESC   &kp A    &kp O     &kp E   &kp U &kp I    &kp D &kp H &kp T &kp N &kp S &kp MINUS
+&kp LSHFT &kp SEMI &kp Q     &kp J   &kp K &kp X    &kp B &kp M &kp W &kp V &kp Z &kp RSHFT
                         &kp LGUI &mo 1 &kp RET      &kp SPACE    &mo 2 ALT_DEL
             >;
         };
@@ -102,10 +103,10 @@
 //                     +-----------------+        +-----------------+
             display-name = "SYM";
             bindings = <
-&kp ESC &kp EXCL &kp AT &kp HASH &kp DLLR &kp PRCNT    &kp CARET &kp AMPS &kp STAR  &kp LPAR &kp RPAR &trans 
-&trans  &trans   &trans &trans   &trans   &kp GRAVE    &kp FSLH  &kp BSLH &kp EQUAL &kp LBKT &kp RBKT &trans
-&trans  &trans   &trans &trans   &trans   &kp TILDE    &kp QMARK &kp PIPE &kp PLUS  &kp LBRC &kp RBRC &trans 
-                       &trans   &trans   &trans       &trans    &trans    &trans
+&kp ESC &kp EXCL &kp AT &kp HASH &kp DLLR &kp PRCNT         &kp CARET &kp AMPS &kp STAR  &kp LPAR &kp RPAR &trans 
+&trans  &kp LBRC &kp LBKT &kp GRAVE &kp QMARK &kp PLUS      &kp PLUS  &kp QMARK &kp PIPE &kp LBRC &kp RBRC &trans
+&trans  &kp RBRC &kp RBKT &kp TILDE &kp FSLH  &kp EQUAL     &kp EQUAL &kp FSLH  &kp BSLH &kp LBKT &kp RBKT &trans 
+                       &trans   &trans   &trans             &trans    &trans    &trans
             >;
         };
         
