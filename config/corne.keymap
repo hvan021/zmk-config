@@ -12,7 +12,9 @@
 #define NUM 1
 #define SYM 2
 #define ADJ 3
+#define QWE 4
 
+#define TAP_SPEED 200
 
 &mt {
     flavor = "tap-preferred";
@@ -27,6 +29,29 @@
  */
 
 / {
+
+
+    behaviors{  
+
+        td0: tap_dance_0 {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TAP_DANCE_0"; 
+            #binding-cells = <0>; 
+            tapping-term-ms = <TAP_SPEED>; 
+            bindings = <&to DEF>, <&to QWE>;
+
+        }; 
+
+        /*td1: tap_dance_1 {*/
+        /*    compatible = "zmk,behavior-tap-dance";*/
+        /*    label = "TAP_DANCE_1"; */
+        /*    #binding-cells = <0>; */
+        /*    tapping-term-ms = <TAP_SPEED>; */
+        /*    bindings = <&kp LSHIFT>, <&kp CAPSLOCK>;*/
+        /*    }; */
+        /**/
+    };
+
     combos {
         compatible = "zmk,combos";
 
@@ -47,6 +72,10 @@
 #define CTL_ESC &mt LCTRL ESC
 #define SHFT_ESC &mt RSHFT ESC
 #define ALT_DEL &mt RALT DEL
+
+#define TD_SLAYER &td0  // dvorak qwerty
+
+
 
 / {
     conditional_layers {
@@ -70,9 +99,9 @@
             display-name = "DVK";
             bindings = <
 &kp TAB   &kp SQT  &kp COMMA &kp DOT &kp P &kp Y    &kp F &kp G &kp C &kp R &kp L &kp BSPC
-CTL_ESC   &kp A    &kp O     &kp E   &kp U &kp I    &kp D &kp H &kp T &kp N &kp S &kp MINUS
+CTL_ESC   &kp A    &kp O     &kp E   &kp U &kp I    &kp D &kp H &kp T &kp N &kp S &kp DEL
 &kp LSHFT &kp SEMI &kp Q     &kp J   &kp K &kp X    &kp B &kp M &kp W &kp V &kp Z &kp RSHFT
-                        &kp LGUI &mo 1 &kp RET      &kp SPACE    &mo 2 ALT_DEL
+                        &kp LGUI &mo 1 &kp RET      &kp SPACE    &mo 2 &to 4
             >;
         };
 
@@ -104,12 +133,12 @@ CTL_ESC   &kp A    &kp O     &kp E   &kp U &kp I    &kp D &kp H &kp T &kp N &kp 
             display-name = "SYM";
             bindings = <
 &kp ESC &kp EXCL &kp AT &kp HASH &kp DLLR &kp PRCNT         &kp CARET &kp AMPS &kp STAR  &kp LPAR &kp RPAR &trans 
-&trans  &kp LBRC &kp LBKT &kp GRAVE &kp QMARK &kp PLUS      &kp PLUS  &kp QMARK &kp PIPE &kp LBKT &kp LBRC &kp GRAVE 
-&trans  &kp RBRC &kp RBKT &kp TILDE &kp FSLH  &kp EQUAL     &kp EQUAL &kp FSLH  &kp BSLH &kp RBKT &kp RBRC &kp TILDE 
+&trans  &kp LBRC &kp LBKT &kp GRAVE &kp QMARK &kp PLUS      &kp PLUS  &kp QMARK &kp MINUS &kp LBKT &kp LBRC &kp PIPE
+&trans  &kp RBRC &kp RBKT &kp TILDE &kp FSLH  &kp EQUAL     &kp EQUAL &kp FSLH  &kp UNDER &kp RBKT &kp RBRC &kp BSLH 
                        &trans   &trans   &trans             &trans    &trans    &trans
             >;
         };
-        
+
 		tri_layer {
 //  +------------------------------------+        +------------------------------------+
 //  | TAB  | BT0 | BT1 | BT2 |     | BCR |        |     |     | UP  |     |     | BKSP |
@@ -117,13 +146,31 @@ CTL_ESC   &kp A    &kp O     &kp E   &kp U &kp I    &kp D &kp H &kp T &kp N &kp 
 //  | SHFT |     |     |     |     |     |        |     |     |     |     |     | S/ESC  |
 //  +------------------| GUI | LWR | ENT |        | SPC | RSE | ALT/DEL |--------------+
 //                     +-----------------+        +-----------------+
+            display-name = "BT";
             bindings = <
 &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &trans &trans    &trans &trans   &kp UP   &trans    &trans &trans
 &trans &trans       &trans       &trans       &trans &trans        &trans &kp LEFT &kp DOWN &kp RIGHT &trans &trans
 &trans &trans       &trans       &kp DOWN     &kp UP &trans        &trans &trans   &trans   &trans    &trans &trans
-                                       &trans &trans &trans        &trans &trans &trans
+                        &trans &trans &trans        &trans &trans &trans
             >;
         };
+
+
+        qwe_layer {
+// -----------------------------------------------------------------------------------------
+// | TAB  |  Q  |  W  |  E  |  R  |    T    |   |  Y  |  U   |  I  |  O  |  P  | ESC |
+// | CTRL |  A  |  S  |  D  |  F  |    G    |   |  H  |  J   |  K  |  L  |  ;  |  LWR/'   |
+// | SHFT |  Z  |  X  |  C  |  V  |    B    |   |  N  |  M   |  ,  |  .  |  /  | SHFT |
+//                    | GUI | LWR | ALT/ENT |   | HYPER/SPC | BKSP  | RSE |
+                display-name = "QWE";
+                bindings = <
+&kp TAB   &kp Q &kp W &kp E &kp R &kp T   &kp Y &kp U  &kp I     &kp O   &kp P    &kp BSPC
+CTL_ESC   &kp A &kp S &kp D &kp F &kp G   &kp H &kp J  &kp K     &kp L   &kp SEMI &kp DEL
+&kp LSHFT &kp Z &kp X &kp C &kp V &kp B   &kp N &kp M  &kp COMMA &kp DOT &kp FSLH &kp RSHFT
+                        &trans &trans &trans        &trans &trans &trans
+                >;
+        };
+
     };
 };
 
