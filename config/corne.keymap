@@ -2,7 +2,6 @@
  * Copyright (c) 2020 The ZMK Contributors
  * SPDX-License-Identifier: MIT
  */
-
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
@@ -52,12 +51,22 @@ MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS)  // right-hand HRMs
 
 &mt {
     flavor = "tap-preferred";
-    tapping-term-ms = <200>;
+    tapping-term-ms = <TAP_SPEED>;
 };
 
 / {
 
     behaviors{  
+
+        tp: tap_preferred {
+            compatible = "zmk,behavior-hold-tap";
+            label = "TAP_PREFERRED";
+            #binding-cells = <2>;
+            tapping-term-ms = <150>;
+            quick-tap-ms = <0>;
+            flavor = "tap-preferred";
+            bindings = <&kp>, <&kp>;
+          };
 
         td0: tap_dance_0 {
             compatible = "zmk,behavior-tap-dance";
@@ -98,9 +107,10 @@ MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS)  // right-hand HRMs
 #define CTL_ESC &mt LCTRL ESC
 #define SHFT_ESC &mt RSHFT ESC
 #define ALT_DEL &mt RALT DEL
+#define CMD_TAB &mt LGUI TAB
 
 #define TD_LAYRSW &td0  // dvorak qwerty
-#define TD_SPCRET &td1  // dvorak qwerty
+#define TD_SPCRET &td1  // space or return
 
 
 
@@ -130,7 +140,7 @@ CTL_ESC   &hml LGUI A &hml LALT O &hml LCTRL E &hml LSHFT U &kp I &kp D &hmr RSH
 /*CTL_ESC   &kp A    &kp O     &kp E   &kp U &kp I    &kp D &kp H &kp T &kp N &kp S &kp MINUS*/
 &kp LSHFT &kp SEMI &kp Q     &kp J   &kp K &kp X    &kp B &kp M &kp W &kp V &kp Z &kp RSHFT
                     /*&kp LGUI &mo 1 TD_SPCRET         &kp RET &mo 2 TD_LAYRSW*/
-                    &kp LGUI &mo 1 TD_SPCRET         &kp RET &mo 2 TD_LAYRSW
+                    CMD_TAB &lt 1 ESC TD_SPCRET         &kp RET &lt 2 DEL TD_LAYRSW
             >;
         };
 
