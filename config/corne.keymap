@@ -112,7 +112,8 @@ MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS)  // right-hand HRMs
 #define TD_LAYRSW &td0  // dvorak qwerty
 #define TD_SPCRET &td1  // space or return
 
-
+#define BTCLR &bt BT_CLR
+#define BTSEL &bt BT_SEL 
 
 / {
     conditional_layers {
@@ -187,10 +188,11 @@ CTL_ESC   &hml LGUI A &hml LALT O &hml LCTRL E &hml LSHFT U &kp I &kp D &hmr RSH
 //                     +-----------------+        +-----------------+
             display-name = "ADJ";
             bindings = <
-&bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4    &sys_reset &bootloader   &kp C_MUTE &kp C_VOL_DN &kp C_VOL_UP &tog QWE
-&kp LC(F2) &trans       &trans       &trans       &trans &trans        &kp LEFT &kp DOWN &kp UP &kp RIGHT &trans &trans
-&trans &kp LG(Z)    &kp LG(X)    &kp LG(C)    &kp LG(V) &trans        &trans &trans   &trans   &trans    &trans &trans
-                        &trans &trans &trans        &trans &trans &trans
+/*&bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4    &sys_reset &bootloader   &kp C_MUTE &kp C_VOL_DN &kp C_VOL_UP &tog QWE*/
+BTCLR BTSEL 0 BTSEL 1 BTSEL 2 BTSEL 3 BTSEL 4           &sys_reset &bootloader   &kp C_MUTE &kp C_VOL_DN &kp C_VOL_UP &tog QWE
+&bootloader &kp LC(F2) &trans &trans &trans &trans      &kp LEFT &kp DOWN &kp UP &kp RIGHT &trans &tog NPAD
+&trans &kp LG(Z) &kp LG(X) &kp LG(C) &kp LG(V) &trans   &trans &trans   &trans   &trans    &trans &tog DEF
+                        &trans &trans &trans            &trans &trans &trans
             >;
         };
 
@@ -205,7 +207,8 @@ CTL_ESC   &hml LGUI A &hml LALT O &hml LCTRL E &hml LSHFT U &kp I &kp D &hmr RSH
                 display-name = "QWE";
                 bindings = <
 &kp TAB   &kp Q &kp W &kp E &kp R &kp T   &kp Y &kp U  &kp I     &kp O   &kp P    &kp BSPC
-CTL_ESC   &kp A &kp S &kp D &kp F &kp G   &kp H &kp J  &kp K     &kp L   &kp SEMI &kp DEL
+/*CTL_ESC   &kp A &kp S &kp D &kp F &kp G   &kp H &kp J  &kp K     &kp L   &kp SEMI &kp DEL*/
+CTL_ESC   &hml LGUI A &hml LALT S &hml LCTRL D &hml LSHFT F &kp G   &kp H &hmr RSHFT J &hmr RCTRL K &hmr RALT L &hmr RGUI SEMI &kp SQT
 &kp LSHFT &kp Z &kp X &kp C &kp V &kp B   &kp N &kp M  &kp COMMA &kp DOT &kp FSLH &kp RSHFT
                         &trans &trans &trans        &trans &trans &trans
                 >;
