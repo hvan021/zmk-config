@@ -105,12 +105,10 @@ MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS)  // right-hand HRMs
 };
 
 #define CTL_ESC &mt LCTRL ESC
-#define SHFT_ESC &mt RSHFT ESC
-#define ALT_DEL &mt RALT DEL
 #define CMD_TAB &mt LGUI TAB
 
 #define TD_LAYRSW &td0  // dvorak qwerty
-#define TD_SPCRET &td1  // space or return
+/*#define TD_SPCRET &td1  // space or return*/
 
 #define BTCLR &bt BT_CLR
 #define BTSEL &bt BT_SEL 
@@ -140,8 +138,7 @@ MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS)  // right-hand HRMs
 CTL_ESC   &hml LGUI A &hml LALT O &hml LCTRL E &hml LSHFT U &kp I &kp D &hmr RSHFT H &hmr RCTRL T &hmr RALT N &hmr RGUI S &kp MINUS
 /*CTL_ESC   &kp A    &kp O     &kp E   &kp U &kp I    &kp D &kp H &kp T &kp N &kp S &kp MINUS*/
 &kp LSHFT &kp SEMI &kp Q     &kp J   &kp K &kp X    &kp B &kp M &kp W &kp V &kp Z &kp RSHFT
-                    /*&kp LGUI &mo 1 TD_SPCRET         &kp RET &mo 2 TD_LAYRSW*/
-                    CMD_TAB &lt 1 ESC TD_SPCRET         &kp RET &lt 2 DEL TD_LAYRSW
+                    CMD_TAB &lt 1 ESC &lt 5 SPC         &kp RET &lt 2 DEL TD_LAYRSW
             >;
         };
 
@@ -189,7 +186,7 @@ CTL_ESC   &hml LGUI A &hml LALT O &hml LCTRL E &hml LSHFT U &kp I &kp D &hmr RSH
             display-name = "ADJ";
             bindings = <
 /*&bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4    &sys_reset &bootloader   &kp C_MUTE &kp C_VOL_DN &kp C_VOL_UP &tog QWE*/
-BTCLR BTSEL 0 BTSEL 1 BTSEL 2 BTSEL 3 BTSEL 4           &trans &trans   &kp C_MUTE &kp C_VOL_DN &kp C_VOL_UP &tog QWE
+BTCLR BTSEL 0 BTSEL 1 BTSEL 2 BTSEL 3 BTSEL 4           &trans &trans  &kp C_MUTE &kp C_VOL_DN &kp C_VOL_UP &tog QWE
 &bootloader &sys_reset &kp LC(F2) &trans &trans &trans  &kp LEFT &kp DOWN &kp UP &kp RIGHT &trans &tog NPAD
 &trans &kp LG(Z) &kp LG(X) &kp LG(C) &kp LG(V) &trans   &trans &trans   &trans   &trans    &trans &tog DEF
                         &trans &trans &trans            &trans &trans &trans
