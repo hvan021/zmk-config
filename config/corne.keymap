@@ -54,6 +54,11 @@ MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS)  // right-hand HRMs
     tapping-term-ms = <TAP_SPEED>;
 };
 
+&lt {
+    flavor = "balanced";
+    tapping-term-ms = <TAP_SPEED>;
+};
+
 /*&soft_off {*/
 /*    hold-time-ms = <2000>; // Only turn off it the key is held for 5 seconds or longer.*/
 /*};*/
