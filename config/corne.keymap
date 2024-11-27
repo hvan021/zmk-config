@@ -54,6 +54,11 @@ MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS)  // right-hand HRMs
     tapping-term-ms = <TAP_SPEED>;
 };
 
+/*&soft_off {*/
+/*    hold-time-ms = <2000>; // Only turn off it the key is held for 5 seconds or longer.*/
+/*};*/
+
+
 / {
 
     behaviors{  
@@ -85,6 +90,13 @@ MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS)  // right-hand HRMs
             bindings = <&kp SPC>, <&kp RET>; 
         }; 
 
+          // the right side always turns off on press :/
+        soff: soft_off {
+            compatible = "zmk,behavior-soft-off";
+            #binding-cells = <0>;
+            // split-peripheral-off-on-press;
+            hold-time-ms = <2000>; // Only turn off it the key is held for 2 seconds or longer.
+        };
     };
 
     combos {
@@ -187,7 +199,7 @@ CTL_ESC   &hml LGUI A &hml LALT O &hml LCTRL E &hml LSHFT U &kp I &kp D &hmr RSH
             bindings = <
 /*&bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4    &sys_reset &bootloader   &kp C_MUTE &kp C_VOL_DN &kp C_VOL_UP &tog QWE*/
 BTCLR BTSEL 0   BTSEL 1    BTSEL 2   BTSEL 3   BTSEL 4      &trans &trans  &kp C_MUTE &kp C_VOL_DN &kp C_VOL_UP &tog QWE
-&trans &trans   &kp LC(F2) &trans    &trans    &bootloader  &kp LEFT &kp DOWN &kp UP &kp RIGHT &trans &tog NPAD
+&soff &trans   &kp LC(F2) &trans    &trans    &bootloader  &kp LEFT &kp DOWN &kp UP &kp RIGHT &trans &tog NPAD
 &trans &kp LG(Z) &kp LG(X) &kp LG(C) &kp LG(V) &sys_reset   &sys_reset &trans   &trans   &trans    &trans &tog DEF
                         &trans &trans &trans               &trans &trans &trans
             >;
