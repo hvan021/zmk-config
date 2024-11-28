@@ -84,8 +84,7 @@ MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS)  // right-hand HRMs
             label = "TAP_DANCE_0"; 
             #binding-cells = <0>; 
             tapping-term-ms = <TAP_SPEED>; 
-            bindings = <&to DEF>, <&to QWE>, <&to NPAD>;
-
+            bindings = <&to DEF>, <&to QWE>, <&to NPAD>, <&to CDV>;
         }; 
 
         td1: tap_dance_1 {
