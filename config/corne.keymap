@@ -211,8 +211,8 @@ CTL_ESC   &hml LGUI A &hml LALT O &hml LCTRL E &hml LSHFT U &kp I &kp D &hmr RSH
             display-name = "ADJ";
             bindings = <
 /*&bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4    &sys_reset &bootloader   &kp C_MUTE &kp C_VOL_DN &kp C_VOL_UP &tog QWE*/
-BTCLR BTSEL 0   BTSEL 1    BTSEL 2   BTSEL 3   BTSEL 4      &trans &trans  &kp C_MUTE &kp C_VOL_DN &kp C_VOL_UP &tog QWE
-&soff &trans   &kp LC(F2) &trans    &trans    &bootloader  &kp LEFT &kp DOWN &kp UP &kp RIGHT &trans &tog NPAD
+BTCLR BTSEL 0   BTSEL 1    BTSEL 2   BTSEL 3   BTSEL 4      &trans &trans  &kp C_MUTE &kp C_VOL_DN &kp C_VOL_UP &to QWE
+&soff &trans   &kp LC(F2) &trans    &trans    &bootloader  &kp LEFT &kp DOWN &kp UP &kp RIGHT &trans &to NPAD
 &trans &kp LG(Z) &kp LG(X) &kp LG(C) &kp LG(V) &sys_reset   &sys_reset &trans   &trans   &trans    &tog CDV &tog DEF
                         &trans &trans &trans               &trans &trans &trans
             >;
@@ -232,7 +232,8 @@ BTCLR BTSEL 0   BTSEL 1    BTSEL 2   BTSEL 3   BTSEL 4      &trans &trans  &kp C
 /*CTL_ESC   &kp A &kp S &kp D &kp F &kp G   &kp H &kp J  &kp K     &kp L   &kp SEMI &kp DEL*/
 CTL_ESC   &hml LGUI A &hml LALT S &hml LCTRL D &hml LSHFT F &kp G   &kp H &hmr RSHFT J &hmr RCTRL K &hmr RALT L &hmr RGUI SEMI &kp SQT
 &kp LSHFT &kp Z &kp X &kp C &kp V &kp B   &kp N &kp M  &kp COMMA &kp DOT &kp FSLH &kp RSHFT
-                        &trans &trans &trans        &trans &trans &trans
+                    CMD_TAB &lt 1 ESC &kp SPC         &kp RET &lt 2 DEL TD_LAYRSW
+                        /*&trans &trans &trans        &trans &trans &trans*/
                 >;
         };
 
