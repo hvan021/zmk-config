@@ -15,7 +15,8 @@
 #define NUM 3
 #define SYM 4
 #define ADJ 5
-#define NPAD 6
+#define PAD 6
+#define NAV 7
 
 #define XXX &none
 #define ___ &trans
@@ -71,7 +72,7 @@ MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS)  // right-hand HRMs
 
         tp: tap_preferred {
             compatible = "zmk,behavior-hold-tap";
-            label = "TAP_PREFERRED";
+            /*label = "TAP_PREFERRED";*/
             #binding-cells = <2>;
             tapping-term-ms = <150>;
             quick-tap-ms = <0>;
@@ -81,15 +82,23 @@ MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS)  // right-hand HRMs
 
         td0: tap_dance_0 {
             compatible = "zmk,behavior-tap-dance";
-            label = "TAP_DANCE_0"; 
+            /*label = "TAP_DANCE_0"; */
             #binding-cells = <0>; 
             tapping-term-ms = <TAP_SPEED>; 
-            bindings = <&to DEF>, <&to QWE>, <&to NPAD>, <&to CDV>;
+            bindings = <&to DEF>, <&to QWE>, <&to CDV>;
+        }; 
+
+        tdnn: tap_dance_nn {
+            compatible = "zmk,behavior-tap-dance";
+            /*label = "TAP_DANCE_NN"; */
+            #binding-cells = <0>; 
+            tapping-term-ms = <TAP_SPEED>; 
+            bindings = <&to PAD>, <&to NAV>;
         }; 
 
         td1: tap_dance_1 {
             compatible = "zmk,behavior-tap-dance";
-            label = "TAP_DANCE_1"; 
+            /*label = "TAP_DANCE_1"; */
             #binding-cells = <0>; 
             tapping-term-ms = <TAP_SPEED>; 
             bindings = <&kp SPC>, <&kp RET>; 
@@ -122,14 +131,15 @@ MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS)  // right-hand HRMs
         combo_npad {
             timeout-ms = <50>;
             key-positions = <15 16>;
-            bindings = <&mo NPAD>;
+            bindings = <&mo PAD>;
         };
 
     };
 };
 
 #define CTL_ESC &mt LCTRL ESC
-#define CMD_TAB &mt LGUI TAB
+#define CMD_NN &mt LGUI &to NAV // command and NUM-NAV tapdance
+/*#define CMD_TAB &mt LGUI TAB*/
 
 #define TD_LAYRSW &td0  // dvorak qwerty
 /*#define TD_SPCRET &td1  // space or return*/
@@ -162,7 +172,8 @@ MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS)  // right-hand HRMs
 CTL_ESC   &hml LGUI A &hml LALT O &hml LCTRL E &hml LSHFT U &kp I &kp D &hmr RSHFT H &hmr RCTRL T &hmr RALT N &hmr RGUI S &kp MINUS
 /*CTL_ESC   &kp A    &kp O     &kp E   &kp U &kp I    &kp D &kp H &kp T &kp N &kp S &kp MINUS*/
 &kp LSHFT &kp SEMI &kp Q     &kp J   &kp K &kp X    &kp B &kp M &kp W &kp V &kp Z &kp RSHFT
-                    CMD_TAB &lt NUM ESC &kp SPC         &kp RET &lt SYM DEL TD_LAYRSW
+                    CMD_NN &lt NUM ESC &kp SPC         &kp RET &lt SYM DEL TD_LAYRSW
+                    /*CMD_TAB &lt NUM ESC &kp SPC         &kp RET &lt SYM DEL TD_LAYRSW*/
             >;
         };
 
@@ -248,7 +259,7 @@ CTL_ESC   &kp A &kp O &kp E &kp U &kp I &kp D &kp H &kp T &kp N &kp S &kp MINUS
             bindings = <
 /*&bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4    &sys_reset &bootloader   &kp C_MUTE &kp C_VOL_DN &kp C_VOL_UP &tog QWE*/
 BTCLR BTSEL 0   BTSEL 1    BTSEL 2   BTSEL 3   BTSEL 4      &trans &trans  &kp C_MUTE &kp C_VOL_DN &kp C_VOL_UP &to QWE
-&soff &trans   &kp LC(F2) &trans    &trans    &bootloader  &kp LEFT &kp DOWN &kp UP &kp RIGHT &trans &tog NPAD
+&soff &trans   &kp LC(F2) &trans    &trans    &bootloader  &kp LEFT &kp DOWN &kp UP &kp RIGHT &trans &tog PAD
 &trans &kp LG(Z) &kp LG(X) &kp LG(C) &kp LG(V) &sys_reset   &sys_reset &trans   &trans   &trans    &to CDV &to DEF
                         &trans &trans &trans               &trans &trans &trans
             >;
@@ -256,13 +267,7 @@ BTCLR BTSEL 0   BTSEL 1    BTSEL 2   BTSEL 3   BTSEL 4      &trans &trans  &kp C
 
 
         numpad_layer {
-//  +------------------------------------+        +------------------------------------+
-//  | TAB  | F7  | F5  | F3  | F1  | F9  |        | F11 | F2  | F4  | F6  | RGT | BKSP |
-//  | CTRL |  1  |  2  |  3  |  4  |  5  |        |  6  |  7  |  8  |  9  |  0  | DEL  |
-//  | SHFT |     |     |     |     |     |        |     |     |     |     |     | S/ESC  |
-//  +------------------| GUI | LWR | ENT |        | SPC | RSE | ALT/DEL |--------------+
-//                     +-----------------+        +-----------------+
-            display-name = "NPAD";
+            display-name = "PAD";
             bindings = <
 /*&trans &kp F7 &kp F5 &kp F3 &kp F1 &kp F9         &kp F11 &kp F2 &kp F4 &kp F6 &kp F8 &trans*/
 &trans &none   &none   &none   &none  &none         &kp FSLH &kp N7 &kp N8 &kp N9 &trans &trans
@@ -270,6 +275,16 @@ BTCLR BTSEL 0   BTSEL 1    BTSEL 2   BTSEL 3   BTSEL 4      &trans &trans  &kp C
 &trans &none   &none   &none   &none  &none         &kp STAR &kp N1 &kp N2 &kp N3 &trans  &to DEF
 /*&trans &trans &trans &trans &trans &trans         &trans  &trans &trans &trans &trans &trans*/
                      &trans &trans &trans           &kp DOT &kp N0 &trans  
+            >;
+        };
+
+        nav_layer {
+            display-name = "NAV";
+            bindings = <
+&trans &trans  &trans  &kp UP &trans   &trans        &trans   &trans   &trans   &trans   &trans   &trans
+&trans &kp HOME  &kp LEFT &kp DOWN &kp RIGHT &kp END &kp LEFT &kp DOWN &kp UP &kp RIGHT &trans &trans 
+&trans &trans &trans &trans &trans &trans            &trans  &trans &trans &trans &trans &trans
+                     &trans &trans &trans            &trans  &trans &trans
             >;
         };
 
