@@ -103,7 +103,9 @@ MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS)  // right-hand HRMs
             /*label = "TAP_DANCE_NN"; */
             #binding-cells = <0>; 
             tapping-term-ms = <TAP_SPEED>; 
-            bindings = <&to PAD>, <&to NAV>;
+            /*bindings = <&to PAD>, <&to NAV>;*/
+            /*bindings = <  mt LGUI <&to PAD>>, <&to NAV>;   */
+            bindings = <&hp LGUI &to PAD>, <&to NAV>;
         }; 
 
         td1: tap_dance_1 {
@@ -182,7 +184,7 @@ MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS)  // right-hand HRMs
 CTL_ESC   &hml LGUI A &hml LALT O &hml LCTRL E &hml LSHFT U &kp I &kp D &hmr RSHFT H &hmr RCTRL T &hmr RALT N &hmr RGUI S &kp MINUS
 /*CTL_ESC   kp E   &kp U &kp I    &kp D &kp H &kp T &kp N &kp S &kp MINUS*/
 &kp LSHFT &kp SEMI &kp Q     &kp J   &kp K &kp X    &kp B &kp M &kp W &kp V &kp Z &kp RSHFT
-                    CMD_NN &lt NUM ESC &kp SPC         &kp RET &lt SYM DEL TD_LAYRSW
+                    &tdnn &lt NUM ESC &kp SPC         &kp RET &lt SYM DEL TD_LAYRSW
                     /*CMD_TAB &lt NUM ESC &kp SPC         &kp RET &lt SYM DEL TD_LAYRSW*/
             >;
         };
