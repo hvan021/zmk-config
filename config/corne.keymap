@@ -80,37 +80,31 @@ MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS)  // right-hand HRMs
             bindings = <&kp>, <&kp>;
           };
 
-        hp: hold_preferred {
-            compatible = "zmk,behavior-hold-tap";
-            /*label = "TAP_PREFERRED";*/
-            #binding-cells = <2>;
-            tapping-term-ms = <400>;
-            quick-tap-ms = <200>;
-            flavor = "hold-preferred";
-            bindings = <&kp>, <&kp>;
-          };
+        /*hp: hold_preferred {*/
+        /*    compatible = "zmk,behavior-hold-tap";*/
+        /*    #binding-cells = <2>;*/
+        /*    tapping-term-ms = <400>;*/
+        /*    quick-tap-ms = <200>;*/
+        /*    flavor = "hold-preferred";*/
+        /*    bindings = <&kp>, <&kp>;*/
+        /*  };*/
 
-        td0: tap_dance_0 {
+        tdlayout: tdlayswitch {
             compatible = "zmk,behavior-tap-dance";
-            /*label = "TAP_DANCE_0"; */
             #binding-cells = <0>; 
             tapping-term-ms = <TAP_SPEED>; 
-            bindings = <&to DEF>, <&to QWE>, <&to CDV>;
+            bindings = <&to DEF>, <&to CDV>, <&to QWE>;
         }; 
 
-        tdnn: tap_dance_nn {
+        tdnavpad: tdnavpad {
             compatible = "zmk,behavior-tap-dance";
-            /*label = "TAP_DANCE_NN"; */
             #binding-cells = <0>; 
             tapping-term-ms = <TAP_SPEED>; 
-            /*bindings = <&to PAD>, <&to NAV>;*/
-            /*bindings = <  mt LGUI <&to PAD>>, <&to NAV>;   */
-            bindings = <&to PAD>, <&to NAV>;
+            bindings = <&to NAV>, <&to PAD> ;
         }; 
 
-        td1: tap_dance_1 {
+        td1: tdspcret {
             compatible = "zmk,behavior-tap-dance";
-            /*label = "TAP_DANCE_1"; */
             #binding-cells = <0>; 
             tapping-term-ms = <TAP_SPEED>; 
             bindings = <&kp SPC>, <&kp RET>; 
@@ -150,11 +144,10 @@ MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS)  // right-hand HRMs
 };
 
 #define CTL_ESC &mt LCTRL ESC
-/*#define CMD_NN &mt LGUI <&tdnn> // command and NUM-NAV tapdance*/
 #define CMD_TAB &mt LGUI TAB
 
-#define TD_LAYRSW &td0  // dvorak qwerty
-/*#define TD_SPCRET &td1  // space or return*/
+#define TD_LAYRSW &tdlayout  // dvorak qwerty
+#define TD_PADNAV &tdnavpad  // dvorak qwerty
 
 #define BTCLR &bt BT_CLR
 #define BTSEL &bt BT_SEL 
@@ -240,7 +233,7 @@ CTL_ESC   &kp A &kp O &kp E &kp U &kp I &kp D &kp H &kp T &kp N &kp S &kp MINUS
 &trans &kp FSLH &kp STAR &kp PLUS &kp MINUS &kp DOT &kp LEFT &kp DOWN &kp UP &kp RIGHT &trans &trans 
 &trans &kp F7 &kp F5 &kp F3 &kp F1 &kp F9         &kp F11 &kp F2 &kp F4 &kp F6 &kp F8 &trans
 /*&trans &trans &trans &trans &trans &trans         &trans  &trans &trans &trans &trans &trans*/
-                     &trans &trans &trans         &trans  &trans &tdnn
+                     &trans &trans &trans         &trans  &trans TD_PADNAV
             >;
         };
 
