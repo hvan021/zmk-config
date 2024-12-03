@@ -255,7 +255,8 @@ CTL_ESC   &kp A &kp O &kp E &kp U &kp I &kp D &kp H &kp T &kp N &kp S &kp MINUS
 //                     +-----------------+        +-----------------+
             display-name = "SYM";
             bindings = <
-&trans    &kp EXCL &kp AT   &kp HASH  &kp DLLR  &kp PRCNT    &kp CARET &kp AMPS  &kp STAR  &kp LPAR &kp RPAR &trans
+&trans &kp F7 &kp F5 &kp F3 &kp F1 &kp F9         &kp F11 &kp F2 &kp F4 &kp F6 &kp F8 &trans
+/*&trans    &kp EXCL &kp AT   &kp HASH  &kp DLLR  &kp PRCNT    &kp CARET &kp AMPS  &kp STAR  &kp LPAR &kp RPAR &trans*/
 &kp CARET &kp LBRC &kp RBRC &kp QMARK &kp GRAVE &kp PIPE     &kp PLUS  &kp MINUS &kp QMARK &kp LBRC &kp RBRC &kp DLLR
 &trans    &kp LBKT &kp RBKT &kp FSLH  &kp TILDE &kp BSLH     &kp EQUAL &kp UNDER &kp FSLH  &kp LBKT &kp RBKT &trans 
                        &trans   &trans   &trans              &trans    &trans    &trans
@@ -283,7 +284,6 @@ BTCLR BTSEL 0   BTSEL 1    BTSEL 2   BTSEL 3   BTSEL 4      &trans &trans  &kp C
         numpad_layer {
             display-name = "PAD";
             bindings = <
-/*&trans &kp F7 &kp F5 &kp F3 &kp F1 &kp F9         &kp F11 &kp F2 &kp F4 &kp F6 &kp F8 &trans*/
 &trans &none   &none   &none   &none  &none         &kp FSLH &kp N7 &kp N8 &kp N9 &trans &trans
 &trans &none   &none   &none   &none  &none         &kp PLUS &kp N4 &kp N5 &kp N6 &trans &trans 
 &trans &none   &none   &none   &none  &none         &kp STAR &kp N1 &kp N2 &kp N3 &trans  &to DEF
