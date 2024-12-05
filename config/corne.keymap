@@ -103,7 +103,7 @@ MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS)  // right-hand HRMs
             bindings = <&to NAV>, <&to PAD> ;
         }; 
 
-        td1: tdspcret {
+        tdspcret: tdspcret {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>; 
             tapping-term-ms = <TAP_SPEED>; 
@@ -148,7 +148,7 @@ MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS)  // right-hand HRMs
 
 #define TD_LAYRSW &tdlayout  // dvorak qwerty
 #define TD_PADNAV &tdnavpad  // dvorak qwerty
-#define TD_SPCRET &td1  // space or return
+#define TD_SPCRET &tdspcret  // space or return
 
 #define BTCLR &bt BT_CLR
 #define BTSEL &bt BT_SEL 
@@ -178,7 +178,7 @@ MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS)  // right-hand HRMs
 CTL_ESC   &hml LGUI A &hml LALT O &hml LCTRL E &hml LSHFT U &kp I &kp D &hmr RSHFT H &hmr RCTRL T &hmr RALT N &hmr RGUI S &kp MINUS
 /*CTL_ESC   kp E   &kp U &kp I    &kp D &kp H &kp T &kp N &kp S &kp MINUS*/
 &kp LSHFT &kp SEMI &kp Q     &kp J   &kp K &kp X    &kp B &kp M &kp W &kp V &kp Z &kp RSHFT
-                    CMD_TAB &lt NUM ESC &kp SPC         TD_SPCRET &lt SYM DEL TD_LAYRSW
+                    CMD_TAB &lt NUM ESC &kp SPC         &kp SPC &lt SYM RET TD_LAYRSW
             >;
         };
 
