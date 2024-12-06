@@ -134,6 +134,12 @@ MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS)  // right-hand HRMs
             bindings = <&caps_word>;
         };
 
+        combo_ret {
+            timeout-ms = <50>;
+            key-positions = <38 39>;
+            bindings = <&kp RET>;
+        };
+
         combo_npad {
             timeout-ms = <50>;
             key-positions = <15 16>;
@@ -178,7 +184,7 @@ MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS)  // right-hand HRMs
 CTL_ESC   &hml LGUI A &hml LALT O &hml LCTRL E &hml LSHFT U &kp I &kp D &hmr RSHFT H &hmr RCTRL T &hmr RALT N &hmr RGUI S &kp MINUS
 /*CTL_ESC   kp E   &kp U &kp I    &kp D &kp H &kp T &kp N &kp S &kp MINUS*/
 &kp LSHFT &kp SEMI &kp Q     &kp J   &kp K &kp X    &kp B &kp M &kp W &kp V &kp Z &kp RSHFT
-                    CMD_TAB &lt NUM ESC &kp SPC         &kp SPC &lt SYM RET TD_LAYRSW
+                    CMD_TAB &lt NUM ESC &kp SPC     &kp SPC &lt SYM BSPC TD_LAYRSW
             >;
         };
 
@@ -192,10 +198,8 @@ CTL_ESC   &hml LGUI A &hml LALT O &hml LCTRL E &hml LSHFT U &kp I &kp D &hmr RSH
                 display-name = "QWE";
                 bindings = <
 &kp TAB   &kp Q &kp W &kp E &kp R &kp T   &kp Y &kp U  &kp I     &kp O   &kp P    &kp BSPC
-/*CTL_ESC   &kp A &kp S &kp D &kp F &kp G   &kp H &kp J  &kp K     &kp L   &kp SEMI &kp DEL*/
 CTL_ESC   &hml LGUI A &hml LALT S &hml LCTRL D &hml LSHFT F &kp G   &kp H &hmr RSHFT J &hmr RCTRL K &hmr RALT L &hmr RGUI SEMI &kp SQT
 &kp LSHFT &kp Z &kp X &kp C &kp V &kp B   &kp N &kp M  &kp COMMA &kp DOT &kp FSLH &kp RSHFT
-                    /*CMD_TAB &lt 1 ESC &kp SPC         &kp RET &lt 2 DEL TD_LAYRSW*/
                         &trans &trans &trans        &trans &trans &trans
                 >;
         };
@@ -210,8 +214,7 @@ CTL_ESC   &hml LGUI A &hml LALT S &hml LCTRL D &hml LSHFT F &kp G   &kp H &hmr R
             display-name = "CDV";
             bindings = <
 &kp TAB   &kp SQT  &kp COMMA &kp DOT &kp P &kp Y    &kp F &kp G &kp C &kp R &kp L &kp BSPC
-CTL_ESC   &kp A &kp O &kp E &kp U &kp I &kp D &kp H &kp T &kp N &kp S &kp MINUS
-/*CTL_ESC   &kp A    &kp O     &kp E   &kp U &kp I    &kp D &kp H &kp T &kp N &kp S &kp MINUS*/
+CTL_ESC   &kp A    &kp O     &kp E   &kp U &kp I    &kp D &kp H &kp T &kp N &kp S &kp MINUS
 &kp LSHFT &kp SEMI &kp Q     &kp J   &kp K &kp X    &kp B &kp M &kp W &kp V &kp Z &kp RSHFT
                         &trans &trans &trans        &trans &trans &trans
             >;
@@ -238,9 +241,9 @@ CTL_ESC   &kp A &kp O &kp E &kp U &kp I &kp D &kp H &kp T &kp N &kp S &kp MINUS
         lower_layer {
             display-name = "NUM";
             bindings = <
-&trans &kp EXCL &kp AT   &kp HASH  &kp DLLR  &kp PRCNT  &kp CARET &kp AMPS  &kp STAR  &kp LPAR &kp RPAR &trans
-&trans &kp N1   &kp N2   &kp N3    &kp N4    &kp N5     &kp LEFT &kp DOWN &kp UP &kp RIGHT &kp QMARK &kp FSLH 
-&trans &kp N6   &kp N7   &kp N8    &kp N9    &kp N0     &kp GRAVE &kp TILDE &kp EQUAL &kp PLUS &kp BSLH &kp PIPE
+&trans &kp EXCL &kp AT   &kp HASH  &kp DLLR  &kp PRCNT  &kp CARET &kp AMPS  &kp STAR  &kp LPAR  &kp RPAR  &trans
+&trans &kp N1   &kp N2   &kp N3    &kp N4    &kp N5     &kp LEFT  &kp DOWN  &kp UP    &kp RIGHT &kp QMARK &kp BSLH 
+&trans &kp N6   &kp N7   &kp N8    &kp N9    &kp N0     &kp GRAVE &kp TILDE &kp EQUAL &kp PLUS  &kp FSLH  &kp PIPE
                      &trans &trans &trans         &trans  &trans TD_PADNAV
             >;
         };
@@ -254,10 +257,9 @@ CTL_ESC   &kp A &kp O &kp E &kp U &kp I &kp D &kp H &kp T &kp N &kp S &kp MINUS
 //                     +-----------------+        +-----------------+
             display-name = "SYM";
             bindings = <
-&trans &kp F7 &kp F5 &kp F3 &kp F1 &kp F9         &kp F11 &kp F2 &kp F4 &kp F6 &kp F8 &trans
-/*&trans    &kp EXCL &kp AT   &kp HASH  &kp DLLR  &kp PRCNT    &kp CARET &kp AMPS  &kp STAR  &kp LPAR &kp RPAR &trans*/
-&trans &kp CARET &kp RBRC &kp QMARK &kp GRAVE &kp PIPE     &kp PLUS  &kp MINUS &kp QMARK &kp LBRC &kp DLLR &trans
-&trans    &kp LBKT &kp RBKT &kp FSLH  &kp TILDE &kp BSLH     &kp EQUAL &kp UNDER &kp FSLH  &kp LBKT &kp RBKT &kp RET 
+&trans &kp F1 &kp F2 &kp F3 &kp F4 &kp F5         &kp F6 &kp F7 &kp F8 &kp F9 &kp F10 &trans
+&trans &kp CARET &kp FSLH &kp LPAR &kp LBRC &kp LBKT      &kp RBKT  &kp RBRC &kp RPAR &kp QMARK &kp DLLR &trans
+&trans &kp LBKT  &kp RBKT &kp FSLH &kp TILDE &kp BSLH     &kp EQUAL &kp UNDER &kp FSLH  &kp LBKT &kp RBKT &kp RET 
                        &trans   &trans   &trans              &trans    &trans    &trans
             >;
         };
@@ -272,8 +274,8 @@ CTL_ESC   &kp A &kp O &kp E &kp U &kp I &kp D &kp H &kp T &kp N &kp S &kp MINUS
             display-name = "ADJ";
             bindings = <
 /*&bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4    &sys_reset &bootloader   &kp C_MUTE &kp C_VOL_DN &kp C_VOL_UP &tog QWE*/
-BTCLR BTSEL 0   BTSEL 1    BTSEL 2   BTSEL 3   BTSEL 4      &trans &trans  &kp C_MUTE &kp C_VOL_DN &kp C_VOL_UP &trans
-&soff &trans   &trans      &trans    &trans    &bootloader  &kp LEFT &kp DOWN &kp UP &kp RIGHT &trans &trans
+BTCLR BTSEL 0   BTSEL 1    BTSEL 2   BTSEL 3   BTSEL 4     &kp LC(F2) &trans  &kp C_MUTE &kp C_VOL_DN &kp C_VOL_UP &trans
+&soff &trans  &trans      &trans    &trans    &bootloader  &kp LEFT &kp DOWN &kp UP &kp RIGHT &trans &trans
 &trans &kp LG(Z) &kp LG(X) &kp LG(C) &kp LG(V) &sys_reset   &sys_reset &trans   &trans   &trans    &trans &trans
                         &trans &trans &trans               &trans &trans &trans
             >;
