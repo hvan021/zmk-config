@@ -136,7 +136,7 @@ MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS)  // right-hand HRMs
 
         combo_ret {
             timeout-ms = <50>;
-            key-positions = <38 39>;
+            key-positions = <22 23>;
             bindings = <&kp RET>;
         };
 
