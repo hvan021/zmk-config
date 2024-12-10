@@ -134,11 +134,11 @@ MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS)  // right-hand HRMs
             bindings = <&caps_word>;
         };
 
-        combo_ret {
-            timeout-ms = <50>;
-            key-positions = <22 23>;
-            bindings = <&kp RET>;
-        };
+        /*combo_ret {*/
+        /*    timeout-ms = <50>;*/
+        /*    key-positions = <22 23>;*/
+        /*    bindings = <&kp RET>;*/
+        /*};*/
 
         combo_npad {
             timeout-ms = <50>;
@@ -183,7 +183,7 @@ MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS)  // right-hand HRMs
 &kp TAB   &kp SQT  &kp COMMA &kp DOT &kp P &kp Y    &kp F &kp G &kp C &kp R &kp L &kp BSPC
 CTL_ESC   &hml LGUI A &hml LALT O &hml LCTRL E &hml LSHFT U &kp I &kp D &hmr RSHFT H &hmr RCTRL T &hmr RALT N &hmr RGUI S &kp MINUS
 &kp LSHFT &kp SEMI &kp Q     &kp J   &kp K &kp X    &kp B &kp M &kp W &kp V &kp Z &kp RSHFT
-                    CMD_ESC &lt NUM TAB &kp SPC     &kp SPC &lt SYM BSPC TD_LAYRSW
+                    CMD_ESC &lt NUM TAB &kp SPC     &kp SPC &lt SYM RET TD_LAYRSW
             >;
         };
 
