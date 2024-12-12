@@ -12,11 +12,11 @@
 #define DEF 0
 #define QWE 1
 #define CDV 2
-#define NUM 3
+#define PAD 3
 #define SYM 4
 #define ADJ 5
-#define PAD 6
-#define NAV 7
+#define NAV 6
+#define NUM 7
 
 #define XXX &none
 #define ___ &trans
@@ -140,11 +140,11 @@ MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS)  // right-hand HRMs
         /*    bindings = <&kp RET>;*/
         /*};*/
 
-        combo_npad {
-            timeout-ms = <50>;
-            key-positions = <15 16>;
-            bindings = <&mo PAD>;
-        };
+        /*combo_npad {*/
+        /*    timeout-ms = <50>;*/
+        /*    key-positions = <15 16>;*/
+        /*    bindings = <&mo PAD>;*/
+        /*};*/
 
     };
 };
@@ -163,7 +163,7 @@ MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS)  // right-hand HRMs
     conditional_layers {
         compatible = "zmk,conditional-layers";
         tri_layer {
-            if-layers = <NUM SYM>;
+            if-layers = <PAD SYM>;
             then-layer = <ADJ>;
         };
     };
@@ -238,13 +238,14 @@ CTL_ESC   &kp A    &kp O     &kp E   &kp U &kp I    &kp D &kp H &kp T &kp N &kp 
 /*            >;*/
 /*        };*/
 
-        lower_layer {
-            display-name = "NUM";
+        numpad_layer {
+            display-name = "PAD";
             bindings = <
-&trans &kp EXCL &kp AT   &kp HASH  &kp DLLR  &kp PRCNT  &kp CARET &kp AMPS  &kp STAR  &kp LPAR  &kp RPAR  &trans
-&trans &kp N1   &kp N2   &kp N3    &kp N4    &kp N5     &kp LEFT  &kp DOWN  &kp UP    &kp RIGHT &kp QMARK &kp BSLH 
-&trans &kp N6   &kp N7   &kp N8    &kp N9    &kp N0     &kp GRAVE &kp TILDE &kp EQUAL &kp PLUS  &kp FSLH  &kp PIPE
-                     &trans &trans &trans         &trans  &trans TD_PADNAV
+&trans &none   &none   &none   &none  &none         &kp STAR &kp N7 &kp N8 &kp N9 &kp PLUS &trans
+&trans &kp N1   &kp N2   &kp N3    &kp N4    &kp N5     &kp FSLH &kp N4 &kp N5 &kp N6 &kp MINUS &trans 
+&trans &kp N6   &kp N7   &kp N8    &kp N9    &kp N0     &kp N0   &kp N1 &kp N2 &kp N3 &kp DOT  &trans
+/*&trans &trans &trans &trans &trans &trans         &trans  &trans &trans &trans &trans &trans*/
+                     &trans &trans &trans           &kp DOT &kp N0 &trans  
             >;
         };
 
@@ -259,8 +260,8 @@ CTL_ESC   &kp A    &kp O     &kp E   &kp U &kp I    &kp D &kp H &kp T &kp N &kp 
             bindings = <
 /*&trans &kp F1 &kp F2 &kp F3 &kp F4 &kp F5         &kp F6 &kp F7 &kp F8 &kp F9 &kp F10 &trans*/
 &trans &kp EXCL &kp AT   &kp HASH  &kp DLLR  &kp PRCNT  &kp CARET &kp AMPS  &kp STAR  &kp QMARK  &kp FSLH  &trans
-&trans &kp GRAVE &kp TILDE &kp LPAR &kp LBRC &kp LBKT   &kp LEFT  &kp DOWN  &kp UP    &kp RIGHT &kp DLLR &kp RET
-&trans &kp BSLH  &kp PIPE  &kp RPAR &kp RBRC  &kp RBKT     &kp EQUAL &kp UNDER &kp FSLH  &kp LBKT &kp RBKT &trans 
+&trans &kp GRAVE &kp TILDE &kp LPAR &kp LBRC &kp LBKT   &kp LEFT  &kp DOWN  &kp UP    &kp RIGHT &kp BSLH &kp RET
+&trans &kp BSLH  &kp PIPE  &kp RPAR &kp RBRC  &kp RBKT  &kp EQUAL &kp PLUS  &kp MINUS &kp UNDER &kp PIPE &trans 
                        &trans   &trans   &trans              &trans    &trans    &trans
             >;
         };
@@ -283,17 +284,6 @@ BTCLR BTSEL 0   BTSEL 1    BTSEL 2   BTSEL 3   BTSEL 4     &kp LC(F2) &trans  &k
         };
 
 
-        numpad_layer {
-            display-name = "PAD";
-            bindings = <
-&trans &none   &none   &none   &none  &none         &kp STAR &kp N7 &kp N8 &kp N9 &kp PLUS &trans
-&trans &kp N1   &kp N2   &kp N3    &kp N4    &kp N5     &kp FSLH &kp N4 &kp N5 &kp N6 &kp MINUS &trans 
-&trans &kp N6   &kp N7   &kp N8    &kp N9    &kp N0     &kp N0   &kp N1 &kp N2 &kp N3 &kp DOT  &trans
-/*&trans &trans &trans &trans &trans &trans         &trans  &trans &trans &trans &trans &trans*/
-                     &trans &trans &trans           &kp DOT &kp N0 &trans  
-            >;
-        };
-
         nav_layer {
             display-name = "NAV";
             bindings = <
@@ -304,6 +294,15 @@ BTCLR BTSEL 0   BTSEL 1    BTSEL 2   BTSEL 3   BTSEL 4     &kp LC(F2) &trans  &k
             >;
         };
 
+        lower_layer {
+            display-name = "NUM";
+            bindings = <
+&trans &kp EXCL &kp AT   &kp HASH  &kp DLLR  &kp PRCNT  &kp CARET &kp AMPS  &kp STAR  &kp LPAR  &kp RPAR  &trans
+&trans &kp N1   &kp N2   &kp N3    &kp N4    &kp N5     &kp LEFT  &kp DOWN  &kp UP    &kp RIGHT &kp QMARK &kp BSLH 
+&trans &kp N6   &kp N7   &kp N8    &kp N9    &kp N0     &kp GRAVE &kp TILDE &kp EQUAL &kp PLUS  &kp FSLH  &kp PIPE
+                     &trans &trans &trans         &trans  &trans TD_PADNAV
+            >;
+        };
 
     };
 };
