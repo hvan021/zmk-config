@@ -182,7 +182,7 @@ MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS)  // right-hand HRMs
             bindings = <
 &kp TAB   &kp SQT  &kp COMMA &kp DOT &kp P &kp Y    &kp F &kp G &kp C &kp R &kp L &kp BSPC
 /*CTL_ESC   &hml LGUI A &hml LALT O &hml LCTRL E &hml LSHFT U &kp I &kp D &hmr RSHFT H &hmr RCTRL T &hmr RALT N &hmr RGUI S &kp MINUS*/
-CTL_ESC   &kp A &hml LALT O &hml LCTRL E &hml LSHFT U &kp I &kp D &hmr RSHFT H &hmr RCTRL T &hmr RALT N &kp S &kp MINUS
+CTL_ESC   &kp A &kp O &kp E &kp U &kp I &kp D &hmr RSHFT H &hmr RCTRL T &hmr RALT N &kp S &kp MINUS
 &kp LSHFT &kp SEMI &kp Q     &kp J   &kp K &kp X    &kp B &kp M &kp W &kp V &kp Z &kp RSHFT
                     CMD_ESC &lt PAD TAB &kp SPC     &kp SPC &lt SYM RET TD_LAYRSW
                     /*&lt NUM ESC &lt PAD TAB &kp SPC     &kp SPC &lt SYM RET TD_LAYRSW*/
