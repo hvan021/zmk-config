@@ -152,6 +152,7 @@ MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS)  // right-hand HRMs
 #define CTL_ESC &mt LCTRL ESC
 /*#define CMD_TAB &mt LGUI TAB*/
 #define CMD_ESC &mt LGUI ESC
+#define ALT_SPC &mt LALT SPC
 #define TD_LAYRSW &tdlayout  // dvorak qwerty
 #define TD_PADNAV &tdnavpad  // dvorak qwerty
 #define TD_SPCRET &tdspcret  // space or return
@@ -184,7 +185,7 @@ MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS)  // right-hand HRMs
 /*CTL_ESC   &hml LGUI A &hml LALT O &hml LCTRL E &hml LSHFT U &kp I &kp D &hmr RSHFT H &hmr RCTRL T &hmr RALT N &hmr RGUI S &kp MINUS*/
 CTL_ESC   &kp A &kp O &kp E &kp U &kp I &kp D &hmr RSHFT H &hmr RCTRL T &hmr RALT N &kp S &kp MINUS
 &kp LSHFT &kp SEMI &kp Q     &kp J   &kp K &kp X    &kp B &kp M &kp W &kp V &kp Z &kp RSHFT
-                    CMD_ESC &lt PAD TAB &kp SPC     &kp SPC &lt SYM RET TD_LAYRSW
+                    CMD_ESC &lt PAD TAB ALT_SPC     &kp SPC &lt SYM RET TD_LAYRSW
                     /*&lt NUM ESC &lt PAD TAB &kp SPC     &kp SPC &lt SYM RET TD_LAYRSW*/
             >;
         };
