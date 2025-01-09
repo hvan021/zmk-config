@@ -14,8 +14,8 @@
 #define CDV 2
 #define PAD 3
 #define SYM 4
-#define ADJ 5
-#define NAV 6
+#define NAV 5
+#define ADJ 6
 /*#define NUM 7*/
 
 #define XXX &none
@@ -167,7 +167,7 @@ MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS)  // right-hand HRMs
     conditional_layers {
         compatible = "zmk,conditional-layers";
         tri_layer {
-            if-layers = <3 4>;
+            if-layers = <PAD SYM>;
             then-layer = <ADJ>;
         };
     };
@@ -188,7 +188,7 @@ MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS)  // right-hand HRMs
 /*CTL_ESC   &hml LGUI A &hml LALT O &hml LCTRL E &hml LSHFT U &kp I &kp D &hmr RSHFT H &hmr RCTRL T &hmr RALT N &hmr RGUI S &kp MINUS*/
 CTL_ESC   &kp A &kp O &kp E &kp U &kp I &kp D &hmr RSHFT H &hmr RCTRL T &hmr RALT N &kp S &kp MINUS
 &kp LSHFT &kp SEMI &kp Q     &kp J   &kp K &kp X    &kp B &kp M &kp W &kp V &kp Z &kp RSHFT
-                    CMD_ESC &lt PAD TAB ALT_SPC     &mt RCTRL SPC &lt SYM RET &mt RSHFT &tdlayout
+                    CMD_ESC &lt PAD TAB ALT_SPC     &mt RCTRL SPC &lt SYM RET &mt RSHFT BSPC
                     /*CMD_ESC &lt PAD TAB ALT_SPC     &mt LSHFT SPC &lt SYM RET TD_LAYRSW*/
             >;
         };
@@ -223,9 +223,9 @@ CTL_ESC   &kp A    &kp O     &kp E   &kp U &kp I    &kp D &kp H &kp T &kp N &kp 
             display-name = "PAD";
             bindings = <
 &trans &none   &none   &none   &none  &none         &kp STAR &kp N7 &kp N8 &kp N9 &kp FSLH &trans
-&trans &sk LGUI &sk LALT &sk LCTRL &sk LSHFT &kp N5 &kp PLUS &kp N4 &kp N5 &kp N6 &kp N0   &trans 
+&trans &sk LGUI &sk LALT &sk LCTRL &sk LSHFT &kp N5 &kp N0   &kp N4 &kp N5 &kp N6 &kp DOT  &trans 
 /*&trans &kp N1  &kp N2   &kp N3    &kp N4    &kp N5  &kp PLUS &kp N4 &kp N5 &kp N6 &kp N0   &trans */
-&trans &kp N6  &kp N7   &kp N8    &kp N9    &kp N0  &kp DOT  &kp N1 &kp N2 &kp N3 &kp COMMA &trans
+&trans &kp N6  &kp N7   &kp N8    &kp N9    &kp N0  &kp PLUS &kp N1 &kp N2 &kp N3 &kp MINUS &trans
                      &trans &trans &trans           &trans &trans &trans  
             >;
         };
@@ -246,6 +246,16 @@ CTL_ESC   &kp A    &kp O     &kp E   &kp U &kp I    &kp D &kp H &kp T &kp N &kp 
             >;
         };
 
+        nav_layer {
+            display-name = "NAV";
+            bindings = <
+&trans &trans  &trans  &kp UP &trans   &trans        &trans   &trans   &trans   &trans   &trans   &trans
+&trans &kp HOME  &kp LEFT &kp DOWN &kp RIGHT &kp END &kp LEFT &kp DOWN &kp UP &kp RIGHT &trans &trans 
+&trans &trans &trans &trans &trans &trans            &trans  &trans &trans &trans &trans &trans
+                     &trans &trans &trans            &trans  &trans &trans
+            >;
+        };
+
 		tri_layer {
 //  +------------------------------------+        +------------------------------------+
 //  | BCLR  | BT0 | BT1 | BT2 | BT3 | BT4 |        |     |     | MUTE| VOL-| VOL+ |     |
@@ -259,16 +269,6 @@ BTCLR BTSEL 0   BTSEL 1    BTSEL 2   BTSEL 3   BTSEL 4     &kp LC(F2) &trans &tr
 &soff &trans  &trans      &trans    &trans    &bootloader  &to DEF &to CDV &to QWE &to NAV &trans &kp C_VOL_DN
 &trans &kp LG(Z) &kp LG(X) &kp LG(C) &kp LG(V) &sys_reset  &sys_reset &trans &trans &trans &trans &kp C_MUTE
                         &trans &trans &trans               &trans &trans &trans
-            >;
-        };
-
-        nav_layer {
-            display-name = "NAV";
-            bindings = <
-&trans &trans  &trans  &kp UP &trans   &trans        &trans   &trans   &trans   &trans   &trans   &trans
-&trans &kp HOME  &kp LEFT &kp DOWN &kp RIGHT &kp END &kp LEFT &kp DOWN &kp UP &kp RIGHT &trans &trans 
-&trans &trans &trans &trans &trans &trans            &trans  &trans &trans &trans &trans &trans
-                     &trans &trans &trans            &trans  &trans &trans
             >;
         };
 
