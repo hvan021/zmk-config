@@ -133,6 +133,12 @@ MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS)  // right-hand HRMs
             bindings = <&caps_word>;
         };
 
+        combo_esc {
+            timeout-ms = <50>;
+            key-positions = <2 3>;
+            bindings = <&kp ESC>;
+        };
+
         /*combo_ret {*/
         /*    timeout-ms = <50>;*/
         /*    key-positions = <22 23>;*/
