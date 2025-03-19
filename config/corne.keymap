@@ -135,7 +135,7 @@ MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS)  // right-hand HRMs
 
         combo_esc {
             timeout-ms = <50>;
-            key-positions = <2 3>;
+            key-positions = <27 28>;
             bindings = <&kp ESC>;
         };
     
