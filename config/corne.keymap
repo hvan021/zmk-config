@@ -145,6 +145,12 @@ MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS)  // right-hand HRMs
             bindings = <&kp BSPC>;
         };
     
+        combo_ret {
+            timeout-ms = <50>;
+            key-positions = <21 22>;
+            bindings = <&kp RET>;
+        };
+    
         combo_tab {
             timeout-ms = <50>;
             key-positions = <1 2>;
