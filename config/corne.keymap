@@ -120,12 +120,15 @@ MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS)  // right-hand HRMs
     combos {
         compatible = "zmk,combos";
 
+<<<<<<< HEAD
         combo_capw {
             timeout-ms = <50>;
             key-positions = <16 19>;
             bindings = <&caps_word>;
         };
 
+=======
+>>>>>>> e183fdf
         combo_grave{
           timeout-ms = <50>;
             key-positions = <1 2>;
@@ -174,6 +177,15 @@ MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS)  // right-hand HRMs
             bindings = <&kp BSPC>;
         };
 
+<<<<<<< HEAD
+=======
+        combo_capw {
+            timeout-ms = <50>;
+            key-positions = <16 19>;
+            bindings = <&caps_word>;
+        }
+
+>>>>>>> e183fdf
 	       combo_under {
 	           timeout-ms = <40>;
 	           key-positions = <13 14>;
