@@ -10,13 +10,12 @@
 #include "zmk-helpers/key-labels/42.h"
 
 #define DEF 0
-#define QWE 1
-#define CDV 2
-#define PAD 3
-#define SYM 4
-#define NAV 5
-#define ADJ 6
-/*#define NUM 7*/
+#define PAD 1
+#define SYM 2
+#define NAV 3
+#define ADJ 4
+// #define QWE 1
+// #define CDV 2
 
 #define XXX &none
 #define ___ &trans
@@ -127,10 +126,28 @@ MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS)  // right-hand HRMs
         /*    bindings = <&kp ESC>;*/
         /*};*/
 
-        combo_tab {
+        combo_grave{
           timeout-ms = <50>;
             key-positions = <1 2>;
-            bindings = <&kp TAB>;
+            bindings = <&kp GRAVE>;
+        };
+
+        combo_tilde{
+          timeout-ms = <50>;
+            key-positions = <2 3>;
+            bindings = <&kp TILDE>;
+        };
+
+        combo_fslh{
+          timeout-ms = <50>;
+            key-positions = <3 4>;
+            bindings = <&kp FSLH>;
+        };
+
+        combo_qmark{
+          timeout-ms = <50>;
+            key-positions = <4 5>;
+            bindings = <&kp QMARK>;
         };
 
         combo_bspc {
@@ -175,6 +192,12 @@ MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS)  // right-hand HRMs
 	           bindings = <&kp LBKT>;
 	       };
 
+	       combo_minus {
+	           timeout-ms = <40>;
+	           key-positions = <16 17>;
+	           bindings = <&kp MINUS>;
+	       };
+
          combo_rpar {
 	           timeout-ms = <40>;
 	           key-positions = <25 26>;
@@ -192,6 +215,18 @@ MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS)  // right-hand HRMs
 	           key-positions = <27 28>;
 	           bindings = <&kp RBKT>;
 	       };
+
+	       combo_under {
+	           timeout-ms = <40>;
+	           key-positions = <28 29>;
+	           bindings = <&kp UNDER>;
+	       };
+
+        combo_tab {
+          timeout-ms = <50>;
+            key-positions = <33 34>;
+            bindings = <&kp TAB>;
+        };
 
 
 	    //    combo_copy_yank {
@@ -266,49 +301,50 @@ MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS)  // right-hand HRMs
             >;
         };
 
-        qwe_layer {
 // -----------------------------------------------------------------------------------------
 // | TAB  |  Q  |  W  |  E  |  R  |    T    |   |  Y  |  U   |  I  |  O  |  P  | ESC |
 // | CTRL |  A  |  S  |  D  |  F  |    G    |   |  H  |  J   |  K  |  L  |  ;  |  LWR/'   |
 // | SHFT |  Z  |  X  |  C  |  V  |    B    |   |  N  |  M   |  ,  |  .  |  /  | SHFT |
 //  +------------------| GUI | LWR | ENT |        | SPC | RSE | ALT/DEL |--------------+
 //                     +-----------------+        +-----------------+
-                display-name = "QWE";
-                bindings = <
-&kp TAB   &kp Q &kp W &kp E &kp R &kp T   &kp Y &kp U  &kp I     &kp O   &kp P    &kp BSPC
-CTL_ESC   &kp A &kp S &hml LCTRL D &hml LSHFT F &kp G   &kp H &hmr RSHFT J &hmr RCTRL K &kp L &kp SEMI &kp SQT
-&kp LSHFT &kp Z &kp X &kp C &kp V &kp B   &kp N &kp M  &kp COMMA &kp DOT &kp FSLH &kp RSHFT
-                        &trans &trans &trans        &trans &trans &trans
-                >;
-        };
 
-        clean_dvk {
-            display-name = "CDV";
-            bindings = <
-&kp TAB   &kp SQT  &kp COMMA &kp DOT &kp P &kp Y    &kp F &kp G &kp C &kp R &kp L &kp BSPC
-CTL_ESC   &kp A    &kp O     &kp E   &kp U &kp I    &kp D &kp H &kp T &kp N &kp S &kp MINUS
-&kp LSHFT &kp SEMI &kp Q     &kp J   &kp K &kp X    &kp B &kp M &kp W &kp V &kp Z &kp RSHFT
-                        &trans &trans &trans        &trans &trans &trans
-            >;
-        };
+//         qwe_layer {
+//                 display-name = "QWE";
+//                 bindings = <
+// &kp TAB   &kp Q &kp W &kp E &kp R &kp T   &kp Y &kp U  &kp I     &kp O   &kp P    &kp BSPC
+// CTL_ESC   &kp A &kp S &hml LCTRL D &hml LSHFT F &kp G   &kp H &hmr RSHFT J &hmr RCTRL K &kp L &kp SEMI &kp SQT
+// &kp LSHFT &kp Z &kp X &kp C &kp V &kp B   &kp N &kp M  &kp COMMA &kp DOT &kp FSLH &kp RSHFT
+//                         &trans &trans &trans        &trans &trans &trans
+//                 >;
+//         };
+
+//         clean_dvk {
+//             display-name = "CDV";
+//             bindings = <
+// &kp TAB   &kp SQT  &kp COMMA &kp DOT &kp P &kp Y    &kp F &kp G &kp C &kp R &kp L &kp BSPC
+// CTL_ESC   &kp A    &kp O     &kp E   &kp U &kp I    &kp D &kp H &kp T &kp N &kp S &kp MINUS
+// &kp LSHFT &kp SEMI &kp Q     &kp J   &kp K &kp X    &kp B &kp M &kp W &kp V &kp Z &kp RSHFT
+//                         &trans &trans &trans        &trans &trans &trans
+//             >;
+//         };
 
         pad_layer {
             display-name = "PAD";
             bindings = <
 &trans &kp F1   &kp F2   &kp F3    &kp F4    &kp F5  &kp STAR &kp N7 &kp N8 &kp N9 &kp FSLH &trans
-&trans &sk LGUI &sk LALT &sk LCTRL &sk LSHFT &kp N5  &kp DOT  &kp N1 &kp N2 &kp N3 &kp N0  &trans 
-&trans &kp F6   &kp F7   &kp F8    &kp F9    &kp F10 &kp PLUS &kp N4 &kp N5 &kp N6 &kp MINUS &trans
-                     &trans &trans &trans           &trans &trans &trans  
+&trans &kp N1   &kp N2   &kp N3    &kp N4    &kp N5  &kp DOT  &kp N1 &kp N2 &kp N3 &kp N0  &trans 
+&trans &kp N6   &kp N7   &kp N8    &kp N9    &kp N0  &kp PLUS &kp N4 &kp N5 &kp N6 &kp MINUS &trans
+                     &trans &trans &trans            &trans &trans &trans  
             >;
         };
 
-        raise_layer {
 //  +------------------------------------+        +------------------------------------+
 //  | TAB  |  "  |  <  |  >  |  #  |  1  |        |  2  |  &  |  }  |  {  |  %  | BKSP |
 //  | CTRL |  !  |  -  |  +  |  =  |  _  |        |  |  |  :  |  )  |  (  |  ?  | DEL  |
 //  | SHFT |  ^  |  /  |  *  |  \  |  $  |        |  `  |  ~  |  ]  |  [  |  @  | S/ESC  |
 //  +------------------| GUI | LWR | ENT |        | SPC | RSE | ALT/DEL |--------------+
 //                     +-----------------+        +-----------------+
+        raise_layer {
             display-name = "SYM";
             bindings = <
 &trans &kp EXCL  &kp AT   &kp HASH &kp DLLR  &kp PRCNT  &kp CARET &kp AMPS  &kp STAR  &kp BSLH  &kp FSLH  &trans
@@ -328,13 +364,13 @@ CTL_ESC   &kp A    &kp O     &kp E   &kp U &kp I    &kp D &kp H &kp T &kp N &kp 
             >;
         };
 
-		tri_layer {
 //  +------------------------------------+        +------------------------------------+
 //  | BCLR  | BT0 | BT1 | BT2 | BT3 | BT4 |        |     |     | MUTE| VOL-| VOL+ |     |
 //  | CTRL |     |     |     |     |     |        |     | LFT | DWN | RGT |     | DEL  |
 //  | SHFT |     |     |     |     |     |        |     |     |     |     |     | S/ESC  |
 //  +------------------| GUI | LWR | ENT |        | SPC | RSE | ALT/DEL |--------------+
 //                     +-----------------+        +-----------------+
+        tri_layer {
             display-name = "ADJ";
             bindings = <
 BTCLR BTSEL 0   BTSEL 1    BTSEL 2   BTSEL 3   BTSEL 4     &kp LC(F2) &trans &trans &trans &trans &kp C_VOL_UP 
