@@ -120,11 +120,11 @@ MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS)  // right-hand HRMs
     combos {
         compatible = "zmk,combos";
 
-        /*combo_esc {*/
-        /*    timeout-ms = <50>;*/
-        /*    key-positions = <19 20>;*/
-        /*    bindings = <&kp ESC>;*/
-        /*};*/
+        combo_capw {
+            timeout-ms = <50>;
+            key-positions = <16 19>;
+            bindings = <&caps_word>;
+        };
 
         combo_grave{
           timeout-ms = <50>;
@@ -150,6 +150,12 @@ MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS)  // right-hand HRMs
             bindings = <&kp QMARK>;
         };
 
+        combo_plus{
+          timeout-ms = <50>;
+            key-positions = <6 7>;
+            bindings = <&kp PLUS>;
+        };
+
         combo_bslh {
           timeout-ms = <50>;
             key-positions = <7 8>;
@@ -168,28 +174,10 @@ MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS)  // right-hand HRMs
             bindings = <&kp BSPC>;
         };
 
-        combo_capw {
-            timeout-ms = <50>;
-            key-positions = <16 19>;
-            bindings = <&caps_word>;
-        };
-
-        combo_esc {
-            timeout-ms = <50>;
-            key-positions = <19 20>;
-            bindings = <&kp ESC>;
-        };
-
-        combo_ret {
-            timeout-ms = <50>;
-            key-positions = <21 22>;
-            bindings = <&kp RET>;
-        };
-    
-	       combo_lpar {
+	       combo_under {
 	           timeout-ms = <40>;
 	           key-positions = <13 14>;
-	           bindings = <&kp LPAR>;
+	           bindings = <&kp UNDER>;
 	       };
 
 	       combo_lbrc {
@@ -204,16 +192,34 @@ MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS)  // right-hand HRMs
 	           bindings = <&kp LBKT>;
 	       };
 
-	       combo_minus {
+	       combo_lpar {
 	           timeout-ms = <40>;
 	           key-positions = <16 17>;
+	           bindings = <&kp LPAR>;
+	       };
+
+	       combo_minus {
+	           timeout-ms = <40>;
+	           key-positions = <18 19>;
 	           bindings = <&kp MINUS>;
 	       };
 
-         combo_rpar {
+        combo_esc {
+            timeout-ms = <50>;
+            key-positions = <19 20>;
+            bindings = <&kp ESC>;
+        };
+
+        combo_ret {
+            timeout-ms = <50>;
+            key-positions = <21 22>;
+            bindings = <&kp RET>;
+        };
+    
+         combo_colon {
 	           timeout-ms = <40>;
 	           key-positions = <25 26>;
-	           bindings = <&kp RPAR>;
+	           bindings = <&kp COLON>;
 	       };
 
 	       combo_rbrc {
@@ -228,11 +234,18 @@ MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS)  // right-hand HRMs
 	           bindings = <&kp RBKT>;
 	       };
 
-	       combo_under {
+         combo_rpar {
 	           timeout-ms = <40>;
 	           key-positions = <28 29>;
-	           bindings = <&kp UNDER>;
+	           bindings = <&kp RPAR>;
 	       };
+
+         combo_equal {
+	           timeout-ms = <40>;
+	           key-positions = <30 31>;
+	           bindings = <&kp EQUAL>;
+	       };
+
 
         combo_tab {
           timeout-ms = <50>;
