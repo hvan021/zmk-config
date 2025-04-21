@@ -87,12 +87,12 @@ MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS)  // right-hand HRMs
         /*    bindings = <&kp>, <&kp>;*/
         /*  };*/
 
-        tdlayout: tdlayswitch {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>; 
-            tapping-term-ms = <TAP_SPEED>; 
-            bindings = <&to DEF>, <&to CDV>, <&to QWE>;
-        }; 
+        // tdlayout: tdlayswitch {
+        //     compatible = "zmk,behavior-tap-dance";
+        //     #binding-cells = <0>; 
+        //     tapping-term-ms = <TAP_SPEED>; 
+        //     bindings = <&to DEF>, <&to CDV>, <&to QWE>;
+        // }; 
 
         tdnavpad: tdnavpad {
             compatible = "zmk,behavior-tap-dance";
@@ -260,9 +260,9 @@ MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS)  // right-hand HRMs
 #define SHFT_SPC &mt LSHFT SPC
 #define CMD_ESC &mt LGUI ESC
 #define ALT_SPC &mt LALT SPC
-#define TD_LAYRSW &tdlayout  // dvorak qwerty
+// #define TD_LAYRSW &tdlayout  // dvorak qwerty
 
-#define CTL_TDLAY &mt LCTL &tdlayout
+// #define CTL_TDLAY &mt LCTL &tdlayout
 
 #define TD_PADNAV &tdnavpad  // dvorak qwerty
 #define TD_SPCRET &tdspcret  // space or return
