@@ -21,7 +21,7 @@
 #define ___ &trans
 
 
-#define TAP_SPEED 200
+#define TAP_SPEED 150
 
 /* Homerow mods */
 
@@ -37,9 +37,9 @@
 #define MAKE_HRM(NAME, HOLD, TAP, TRIGGER_POS) \
     ZMK_HOLD_TAP(NAME, \
         flavor = "balanced"; \
-        tapping-term-ms = <280>; \
-        quick-tap-ms = <175>; \
-        require-prior-idle-ms = <180>; \
+        tapping-term-ms = <250>; \
+        quick-tap-ms = <150>; \
+        require-prior-idle-ms = <150>; \
         bindings = <HOLD>, <TAP>; \
         hold-trigger-key-positions = <TRIGGER_POS>; \
         hold-trigger-on-release; \
@@ -294,6 +294,7 @@ MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS)  // right-hand HRMs
 #define SHFT_SPC &mt LSHFT SPC
 #define CMD_ESC &mt LGUI ESC
 #define ALT_SPC &mt LALT SPC
+#define SHFT_SPC &mt LSHFT SPC
 // #define TD_LAYRSW &tdlayout  // dvorak qwerty
 
 // #define CTL_TDLAY &mt LCTL &tdlayout
@@ -330,7 +331,7 @@ MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS)  // right-hand HRMs
 /*CTL_ESC         &kp A         &kp O         &kp E         &kp U           &kp I         &kp D         &kp H         &kp T         &kp N         &kp S         &kp MINUS */
     &kp LSHFT     &kp SEMI      &kp Q         &kp J         &kp K           &kp X         &kp B         &kp M         &kp W         &kp V         &kp Z         &kp RSHFT
 /*&kp LSHFT &hml LGUI SEMI &hml LALT Q &hml LCTRL J &hml LSHFT K &kp X &kp B &hmr RSHFT M &hmr RCTRL W &hmr RALT V &hmr RGUI Z &kp RSHFT*/
-                                CMD_ESC       &lt PAD TAB   ALT_SPC        &kp SPC        &lt SYM RET   &key_repeat
+                                CMD_ESC       &lt PAD TAB   ALT_SPC        SHFT_SPC        &lt SYM RET   &key_repeat
                     /*CMD_ESC &lt PAD TAB ALT_SPC     &mt LSHFT SPC &lt SYM RET TD_LAYRSW*/
             >;
         };
