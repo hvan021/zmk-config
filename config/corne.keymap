@@ -332,7 +332,7 @@ MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS)  // right-hand HRMs
     &kp LSHFT     &kp SEMI      &kp Q         &kp J         &kp K           &kp X         &kp B         &kp M         &kp W         &kp V         &kp Z         &kp RSHFT
 /*&kp LSHFT &hml LGUI SEMI &hml LALT Q &hml LCTRL J &hml LSHFT K &kp X &kp B &hmr RSHFT M &hmr RCTRL W &hmr RALT V &hmr RGUI Z &kp RSHFT*/
                                 // CMD_ESC       &lt PAD TAB   ALT_SPC        SHFT_SPC        &lt SYM RET   &key_repeat
-                                CMD_ESC       &lt PAD TAB   CTRL_SPC        SHFT_SPC        &lt SYM RET   &mt RALT key_repeat
+                                CMD_ESC       &lt PAD TAB   CTRL_SPC        SHFT_SPC        &lt SYM RET   &kp RALT 
                     /*CMD_ESC &lt PAD TAB ALT_SPC     &mt LSHFT SPC &lt SYM RET TD_LAYRSW*/
             >;
         };
