@@ -290,7 +290,7 @@ MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS)  // right-hand HRMs
     };
 };
 
-// #define CTL_ESC &mt LCTRL ESC
+#define CTL_ESC &mt LCTRL ESC
 #define SHFT_SPC &mt LSHFT SPC
 #define CMD_ESC &mt LGUI ESC
 // #define ALT_SPC &mt LALT SPC
