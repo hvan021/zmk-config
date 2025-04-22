@@ -21,7 +21,7 @@
 #define ___ &trans
 
 
-#define TAP_SPEED 150
+#define TAP_SPEED 180
 
 /* Homerow mods */
 
