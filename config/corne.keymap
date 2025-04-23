@@ -279,7 +279,6 @@ MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS)  // right-hand HRMs
 };
 
 #define CTL_ESC &mt LCTRL ESC
-#define SHFT_SPC &mt RSHFT SPC
 #define CMD_ESC &mt LGUI ESC
 // #define ALT_SPC &mt LALT SPC
 #define CTRL_SPC &mt LCTRL SPC
@@ -316,12 +315,8 @@ MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS)  // right-hand HRMs
 //╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
     &kp TAB       &kp SQT       &kp COMMA     &kp DOT       &kp P           &kp Y         &kp F         &kp G         &kp C         &kp R         &kp L         &kp BSPC
     CTL_ESC       &kp A         &kp O         &hml LCTRL E  &hml LSHFT U    &kp I         &kp D         &hmr RSHFT H  &hmr RCTRL T  &kp N         &kp S         &kp MINUS
-    // CTL_ESC       &kp A         &hml LALT O   &kp E         &kp U           &kp I         &kp D         &kp H         &kp T         &kp N         &kp S         &kp MINUS
     &kp LSHFT     &kp SEMI      &kp Q         &kp J         &kp K           &kp X         &kp B         &kp M         &kp W         &kp V         &kp Z         &kp RSHFT
-/*&kp LSHFT &hml LGUI SEMI &hml LALT Q &hml LCTRL J &hml LSHFT K &kp X &kp B &hmr RSHFT M &hmr RCTRL W &hmr RALT V &hmr RGUI Z &kp RSHFT*/
-                                // CMD_ESC       &lt PAD TAB   ALT_SPC        SHFT_SPC        &lt SYM RET   &key_repeat
-                                CMD_ESC       &lt PAD TAB   CTRL_SPC        SHFT_SPC        &lt SYM RET   &mt RALT BSPC 
-                    /*CMD_ESC &lt PAD TAB ALT_SPC     &mt LSHFT SPC &lt SYM RET TD_LAYRSW*/
+                                CMD_ESC       &lt PAD TAB   &mt LSHFT SPC     &mt RCTRL SPC        &lt SYM RET   &mt RALT BSPC 
             >;
         };
 
