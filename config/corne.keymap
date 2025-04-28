@@ -14,6 +14,7 @@
 #define SYM 2
 #define NAV 3
 #define ADJ 4
+#define MSE 5
 // #define QWE 1
 // #define CDV 2
 
@@ -21,7 +22,7 @@
 #define ___ &trans
 
 
-#define TAP_SPEED 180
+#define TAP_SPEED 150
 
 /* Homerow mods */
 
@@ -46,6 +47,11 @@
     )
 MAKE_HRM(hml, &kp, &kp, KEYS_R THUMBS)  // left-hand HRMs
 MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS)  // right-hand HRMs
+
+// #include "mouse.dtsi"
+#define ZMK_POINTING_DEFAULT_MOVE_VAL 1500  // default: 600
+#define ZMK_POINTING_DEFAULT_SCRL_VAL 20    // default: 10
+#include <dt-bindings/zmk/pointing.h>
 
 &mt {
     flavor = "tap-preferred";
@@ -279,15 +285,15 @@ MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS)  // right-hand HRMs
 };
 
 #define CTL_ESC &mt LCTRL ESC
-#define CMD_ESC &mt LGUI ESC
+// #define CMD_ESC &mt LGUI ESC
 // #define ALT_SPC &mt LALT SPC
-#define CTRL_SPC &mt LCTRL SPC
+// #define CTRL_SPC &mt LCTRL SPC
 // #define TD_LAYRSW &tdlayout  // dvorak qwerty
 
 // #define CTL_TDLAY &mt LCTL &tdlayout
 
-#define TD_PADNAV &tdnavpad  // dvorak qwerty
-#define TD_SPCRET &tdspcret  // space or return
+// #define TD_PADNAV &tdnavpad  // dvorak qwerty
+// #define TD_SPCRET &tdspcret  // space or return
 
 #define BTCLR &bt BT_CLR
 #define BTSEL &bt BT_SEL 
@@ -316,7 +322,7 @@ MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS)  // right-hand HRMs
     &kp TAB       &kp SQT       &kp COMMA     &kp DOT       &kp P           &kp Y         &kp F         &kp G         &kp C         &kp R         &kp L         &kp BSPC
     CTL_ESC       &kp A         &kp O         &hml LCTRL E  &hml LSHFT U    &kp I         &kp D         &hmr RSHFT H  &hmr RCTRL T  &kp N         &kp S         &kp MINUS
     &kp LSHFT     &kp SEMI      &kp Q         &kp J         &kp K           &kp X         &kp B         &kp M         &kp W         &kp V         &kp Z         &kp RSHFT
-                                CMD_ESC       &lt PAD TAB   &mt LSHFT SPC     &mt RCTRL SPC        &lt SYM RET   &mt RALT BSPC 
+                                              &mt LGUI ESC  &lt PAD TAB   &lt MSE SPC   &mt RCTRL SPC &lt SYM RET   &mt RALT BSPC 
             >;
         };
 
@@ -367,8 +373,8 @@ MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS)  // right-hand HRMs
             display-name = "SYM";
             bindings = <
 &trans &kp EXCL  &kp AT   &kp HASH &kp DLLR  &kp PRCNT  &kp CARET &kp AMPS  &kp STAR  &kp BSLH  &kp FSLH  &trans
-&trans &kp GRAVE &kp BSLH &kp LPAR &kp LBRC  &kp LBKT   &kp LEFT  &kp DOWN  &kp UP    &kp RIGHT &kp QMARK  &kp RET
-&trans &kp TILDE &kp PIPE &kp RPAR &kp RBRC  &kp RBKT   &kp PLUS  &kp EQUAL &kp PIPE  &kp UNDER &kp MINUS &trans 
+&trans &kp F1   &kp F2   &kp F3    &kp F4    &kp F5     &kp LEFT  &kp DOWN  &kp UP    &kp RIGHT &kp QMARK  &kp RET
+&trans &kp F6   &kp F7   &kp F8    &kp F9    &kp F10    &kp PLUS  &kp EQUAL &kp PIPE  &kp UNDER &kp MINUS &trans 
                        &trans   &trans   &trans              &trans    &trans    &trans
             >;
         };
@@ -399,6 +405,18 @@ BTCLR BTSEL 0   BTSEL 1    BTSEL 2   BTSEL 3   BTSEL 4     &kp LC(F2) &trans &tr
                         &trans &trans &trans               &trans &trans &trans
             >;
         };
+
+        mse_layer {
+            display-name = "MSE";
+            bindings = <
+&trans &trans  &trans &trans &trans   &trans        &trans   &trans   &mmv MOVE_UP   &trans   &trans   &trans
+&trans &trans  &trans &trans &trans   &trans        &msc SCRL_DOWN   &mmv MOVE_LEFT   &mmv MOVE_DOWN   &mmv MOVE_RIGHT   &msc SCRL_UP   &trans
+// &trans &kp HOME  &kp LEFT &kp DOWN &kp RIGHT &kp END &kp LEFT &kp DOWN &kp UP &kp RIGHT &trans &trans 
+&trans &trans &trans &trans &trans &trans            &trans  &trans &trans &trans &trans &trans
+                     &trans &trans &trans            &mkp LCLK &mkp MCLK &mkp RCLK
+            >;
+        };
+
 
 /*        num_layer {*/
 /*            display-name = "NUM";*/
