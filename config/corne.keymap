@@ -22,7 +22,7 @@
 #define ___ &trans
 
 
-#define TAP_SPEED 150
+#define TAP_SPEED 200
 
 /* Homerow mods */
 
@@ -71,7 +71,7 @@ MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS)  // right-hand HRMs
           compatible = "zmk,behavior-hold-tap";
           /*label = "TAP_PREFERRED";*/
           #binding-cells = <2>;
-          tapping-term-ms = <150>;
+          tapping-term-ms = <TAP_SPEED>;
           quick-tap-ms = <0>;
           flavor = "tap-preferred";
           bindings = <&kp>, <&kp>;
@@ -93,19 +93,19 @@ MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS)  // right-hand HRMs
         //     bindings = <&to DEF>, <&to CDV>, <&to QWE>;
         // }; 
 
-      tdnavpad: tdnavpad {
-          compatible = "zmk,behavior-tap-dance";
-          #binding-cells = <0>; 
-          tapping-term-ms = <TAP_SPEED>; 
-          bindings = <&to NAV>, <&to PAD> ;
-      }; 
+      // tdnavpad: tdnavpad {
+      //     compatible = "zmk,behavior-tap-dance";
+      //     #binding-cells = <0>; 
+      //     tapping-term-ms = <TAP_SPEED>; 
+      //     bindings = <&to NAV>, <&to PAD> ;
+      // }; 
 
-      tdspcret: tdspcret {
-          compatible = "zmk,behavior-tap-dance";
-          #binding-cells = <0>; 
-          tapping-term-ms = <TAP_SPEED>; 
-          bindings = <&kp SPC>, <&kp RET>; 
-      }; 
+      // tdspcret: tdspcret {
+      //     compatible = "zmk,behavior-tap-dance";
+      //     #binding-cells = <0>; 
+      //     tapping-term-ms = <TAP_SPEED>; 
+      //     bindings = <&kp SPC>, <&kp RET>; 
+      // }; 
 
         // the right side always turns off on press :/
       soff: soft_off {
