@@ -22,7 +22,7 @@
 #define ___ &trans
 
 
-#define TAP_SPEED 200
+#define TAP_SPEED 175
 
 /* Homerow mods */
 
@@ -49,8 +49,8 @@ MAKE_HRM(hml, &kp, &kp, KEYS_R THUMBS)  // left-hand HRMs
 MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS)  // right-hand HRMs
 
 // #include "mouse.dtsi"
-#define ZMK_POINTING_DEFAULT_MOVE_VAL 3000  // default: 600
-#define ZMK_POINTING_DEFAULT_SCRL_VAL 20    // default: 10
+#define ZMK_POINTING_DEFAULT_MOVE_VAL 1200  // default: 600
+#define ZMK_POINTING_DEFAULT_SCRL_VAL 10    // default: 10
 #include <dt-bindings/zmk/pointing.h>
 
 &mt {
@@ -197,10 +197,10 @@ MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS)  // right-hand HRMs
         bindings = <&kp UNDER>;
     };
 
-    combo_colon {
-        timeout-ms = <40>;
+    combo_hyphen {
+      timeout-ms = <40>;
         key-positions = <21 22>;
-        bindings = <&kp COLON>;
+        bindings = <&kp MINUS>;
     };
 
     combo_gt{
@@ -243,6 +243,12 @@ MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS)  // right-hand HRMs
       timeout-ms = <50>;
         key-positions = <32 33>;
         bindings = <&kp QMARK>;
+    };
+
+    combo_colon {
+        timeout-ms = <40>;
+        key-positions = <33 34>;
+        bindings = <&kp COLON>;
     };
 
     // combo_tab {
