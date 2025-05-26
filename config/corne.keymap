@@ -318,7 +318,8 @@ MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS)  // right-hand HRMs
     CTL_ESC       &kp A         &kp O         &hml LCTRL E  &hml LSHFT U    &kp I         &kp D         &hmr RSHFT H  &hmr RCTRL T  &kp N         &kp S         &kp MINUS
     // &kp LSHFT     &kp SEMI      &kp Q         &kp J         &kp K           &kp X         &kp B         &kp M         &kp W         &kp V         &kp Z         &kp RSHFT
     &kp LSHFT     &lt MSE SEMI      &kp Q         &kp J         &kp K           &kp X         &kp B         &kp M         &kp W         &kp V         &kp Z         &kp RSHFT
-                                              &mt LGUI ESC  &lt PAD TAB   &mt LCTRL SPC   &mt RSHFT SPC &lt SYM RET   &mt RALT BSPC 
+                                              &mt LGUI ESC  &lt PAD TAB   &kp SPC          &kp SPC &lt SYM RET   &mt RALT BSPC 
+
             >;
         };
 
