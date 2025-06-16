@@ -149,6 +149,12 @@ MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS)  // right-hand HRMs
         bindings = <&kp PIPE>;
     };
 
+    combo_dqt {
+      timeout-ms = <50>;
+        key-positions = <9 10>;
+        bindings = <&kp DQT>;
+    };
+
     // combo_bspc {
     //   timeout-ms = <50>;
     //     key-positions = <9 10>;
