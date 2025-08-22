@@ -296,7 +296,7 @@ MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS)  // right-hand HRMs
 // #define TD_PADNAV &tdnavpad  // dvorak qwerty
 // #define TD_SPCRET &tdspcret  // space or return
 
-#define BTCLR &bt BT_CLR
+#define BTCLR &bt BT_CLR_ALL
 #define BTSEL &bt BT_SEL 
 
 / {
@@ -311,7 +311,7 @@ MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS)  // right-hand HRMs
     keymap {
         compatible = "zmk,keymap";
         default_layer {
-//  +------------------------------------+        +------------------------------------+
+      //  +------------------------------------+        +------------------------------------+
 //  | TAB  |  '  |  ,  |  .  |  P  |  Y  |        |  F  |  G  |  C  |  R  |  L  | BKSP |
 //  | CTRL |  A  |  O  |  E  |  U  |  I  |        |  D  |  H  |  T  |  N  |  S  | DEL  |
 //  | SHFT |  ;  |  Q  |  J  |  K  |  X  |        |  B  |  M  |  W  |  V  |  Z  | S/ESC  |
@@ -472,4 +472,4 @@ BTCLR BTSEL 0   BTSEL 1    BTSEL 2   BTSEL 3   BTSEL 4     &kp LC(F2) &trans &tr
 
 
 
-/* vim: set ft=c tw=146: */
+/* vim: set tw=146: */
