@@ -77,36 +77,6 @@ MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS)  // right-hand HRMs
           bindings = <&kp>, <&kp>;
         };
 
-        /*hp: hold_preferred {*/
-        /*    compatible = "zmk,behavior-hold-tap";*/
-        /*    #binding-cells = <2>;*/
-        /*    tapping-term-ms = <400>;*/
-        /*    quick-tap-ms = <200>;*/
-        /*    flavor = "hold-preferred";*/
-        /*    bindings = <&kp>, <&kp>;*/
-        /*  };*/
-
-        // tdlayout: tdlayswitch {
-        //     compatible = "zmk,behavior-tap-dance";
-        //     #binding-cells = <0>; 
-        //     tapping-term-ms = <TAP_SPEED>; 
-        //     bindings = <&to DEF>, <&to CDV>, <&to QWE>;
-        // }; 
-
-      // tdnavpad: tdnavpad {
-      //     compatible = "zmk,behavior-tap-dance";
-      //     #binding-cells = <0>; 
-      //     tapping-term-ms = <TAP_SPEED>; 
-      //     bindings = <&to NAV>, <&to PAD> ;
-      // }; 
-
-      // tdspcret: tdspcret {
-      //     compatible = "zmk,behavior-tap-dance";
-      //     #binding-cells = <0>; 
-      //     tapping-term-ms = <TAP_SPEED>; 
-      //     bindings = <&kp SPC>, <&kp RET>; 
-      // }; 
-
         // the right side always turns off on press :/
       soff: soft_off {
           compatible = "zmk,behavior-soft-off";
@@ -322,8 +292,9 @@ MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS)  // right-hand HRMs
 //╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
     &kp TAB       &kp SQT       &kp COMMA     &kp DOT       &kp P           &kp Y         &kp F         &kp G         &kp C         &kp R         &kp L         &kp BSPC
     CTL_ESC       &kp A         &kp O         &hml LCTRL E  &hml LSHFT U    &kp I         &kp D         &hmr RSHFT H  &hmr RCTRL T  &kp N         &kp S         &kp MINUS
-    &kp LSHFT     &lt MSE SEMI  &kp Q         &kp J         &kp K           &kp X         &kp B         &kp M         &kp W         &kp V         &kp Z         &kp RSHFT
-                                              &mt LGUI ESC  &lt PAD TAB     &kp SPC       &kp SPC       &lt SYM RET   &mt RALT BSPC 
+    &kp LSHFT     &kp SEMI      &kp Q         &kp J         &kp K           &kp X         &kp B         &kp M         &kp W         &kp V         &kp Z         &kp RSHFT
+                                              &mt LALT TAB  &mt LGUI ESC    &lt PAD SPC   &kp SPC       &lt SYM RET   &mt RALT BSPC 
+                                              /* &mt LGUI ESC  &lt PAD TAB     &lt PAD SPC       &kp SPC       &lt SYM RET   &mt RALT BSPC  */
 
             >;
         };
@@ -454,6 +425,36 @@ BTCLR BTSEL 0   BTSEL 1    BTSEL 2   BTSEL 3   BTSEL 4     &kp LC(F2) &trans &tr
 /*            >;*/
 /*        };*/
 
+
+        /*hp: hold_preferred {*/
+        /*    compatible = "zmk,behavior-hold-tap";*/
+        /*    #binding-cells = <2>;*/
+        /*    tapping-term-ms = <400>;*/
+        /*    quick-tap-ms = <200>;*/
+        /*    flavor = "hold-preferred";*/
+        /*    bindings = <&kp>, <&kp>;*/
+        /*  };*/
+
+        // tdlayout: tdlayswitch {
+        //     compatible = "zmk,behavior-tap-dance";
+        //     #binding-cells = <0>; 
+        //     tapping-term-ms = <TAP_SPEED>; 
+        //     bindings = <&to DEF>, <&to CDV>, <&to QWE>;
+        // }; 
+
+      // tdnavpad: tdnavpad {
+      //     compatible = "zmk,behavior-tap-dance";
+      //     #binding-cells = <0>; 
+      //     tapping-term-ms = <TAP_SPEED>; 
+      //     bindings = <&to NAV>, <&to PAD> ;
+      // }; 
+
+      // tdspcret: tdspcret {
+      //     compatible = "zmk,behavior-tap-dance";
+      //     #binding-cells = <0>; 
+      //     tapping-term-ms = <TAP_SPEED>; 
+      //     bindings = <&kp SPC>, <&kp RET>; 
+      // }; 
 
 
 /* Key positions
